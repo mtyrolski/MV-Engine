@@ -13,10 +13,10 @@ namespace mv
 		static void init(sf::Vector2i uWorldSize, const sf::Vector2f& celldimensions);
 
 		//Returns world size in units
-		static sf::Vector2i &getUnitWorldSize();
+		static sf::Vector2i getUnitWorldSize();
 		
 		//Returns dimensions of cell (in px)
-		static sf::Vector2f &getCellDimensions();
+		static sf::Vector2f getCellDimensions();
 
 	private:
 

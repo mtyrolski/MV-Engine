@@ -15,6 +15,23 @@ namespace mv
 
 		Cell(sf::Vector2i uPos);
 
+		//Change state for given shift
+		void changeState(int shift);
+
+		//Change state for 1 
+		void changeState();
+
+		//Returns number of state
+		uint8_t getState();
+
+		//Returns name of state
+		std::string getStateName();
+
+		//Change cell's state to given name
+		//returns false if given state doesn't exist
+		//returns true if state has been changed
+		bool setState(std::string stateName);
+
 	private:
 
 		//Shape of cell
@@ -22,6 +39,9 @@ namespace mv
 
 		//State of cell
 		uint8_t state;
+
+		//State of cell in next cycle
+		uint8_t nextState;
 
 		//Position in unit system
 		const sf::Vector2i unitPosition;

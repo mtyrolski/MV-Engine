@@ -11,11 +11,11 @@ namespace mv
 		MapManager::unitWorldSize = uWorldSize;
 		MapManager::cellDimensions = celldimensions;
 	}
-	sf::Vector2i & MapManager::getUnitWorldSize()
+	sf::Vector2i MapManager::getUnitWorldSize()
 	{
 		return MapManager::unitWorldSize;
 	}
-	sf::Vector2f & MapManager::getCellDimensions()
+	sf::Vector2f MapManager::getCellDimensions()
 	{
 		return MapManager::cellDimensions;
 	}

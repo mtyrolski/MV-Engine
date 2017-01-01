@@ -6,9 +6,8 @@ namespace mv
 		:unitPosition(uPos)
 	{
 		shape.setSize(MapManager::getCellDimensions());
-		m_shape.setOutlineThickness(m_dimensions.x / 10.0f); //10%
+		shape.setOutlineThickness(MapManager::getCellDimensions().x / 10.0f); //10%
 
-		m_shape.setOutlineColor(sf::Color(120, 133, 139)); //Squirrel grey
 
 		updateTexture();
 
