@@ -4,17 +4,31 @@
 #include <fstream>
 #include <SFML/System/Vector2.hpp>
 #include <string>
+#include "engine/config/Config.hpp"
 
-class Loader final
+namespace mv
 {
-	static const std::string path;
+	class Loader final
+	{
+	public:
 
-public:
+		//Loads data from file
+		//title
+		//dimensions
+		//amount
+		//speed of camera(view)
+		void loadData();
 
-	static std::string title;
-	static sf::Vector2f dimensions;
-	static sf::Vector2i ammount;
-	static float moveSpeed;
+		//title of the window
+		std::string title;
 
-	static void LoadData();
-};
+		//dimensions of single cell
+		sf::Vector2f cellDimensions;
+
+		//ammount of cells on the map
+		sf::Vector2i ammount;
+
+		//speed of camera(view)
+		float moveSpeed;
+	};
+}
