@@ -8,12 +8,34 @@ namespace mv
 		shape.setSize(MapManager::getCellDimensions());
 		shape.setOutlineThickness(MapManager::getCellDimensions().x / 10.0f); //10%
 
+		shape.setOutlineColor(constants::cell::FILL_COLOR); 
 
-		updateTexture();
+		shape.setPosition(uPos.x*MapManager::getCellDimensions().x, uPos.y*MapManager::getCellDimensions().y);
+	}
 
-		m_shape.setPosition(id.x*m_dimensions.x, id.y*m_dimensions.y);
+	void Cell::changeState(int shift)
+	{
+		nextState = state + shift;
+		//nextState%=AMMOUNT_STATES
+	}
 
-		nextValue = Cell::EMPTY;
+	void Cell::changeState()
+	{
+		changeState(1);
+	}
 
+	uint8_t Cell::getState()
+	{
+		return state;
+	}
+
+	std::string Cell::getStateName()
+	{
+		return std::string(); //to do...
+	}
+
+	bool Cell::setState(std::string stateName)
+	{
+		return false; //to do...
 	}
 }
