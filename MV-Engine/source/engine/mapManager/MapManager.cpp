@@ -2,18 +2,22 @@
 
 namespace mv
 {
+	std::vector<Cell> MapManager::map;
+	sf::Vector2i MapManager::unitWorldSize;
+	sf::Vector2f MapManager::cellDimensions;
+
 	void MapManager::init(sf::Vector2i uWorldSize, const sf::Vector2f & celldimensions)
 	{
-		unitWorldSize = uWorldSize;
-		cellDimensions = celldimensions;
+		MapManager::unitWorldSize = uWorldSize;
+		MapManager::cellDimensions = celldimensions;
 	}
 	sf::Vector2i & MapManager::getUnitWorldSize()
 	{
-		return unitWorldSize;
+		return MapManager::unitWorldSize;
 	}
 	sf::Vector2f & MapManager::getCellDimensions()
 	{
-		return cellDimensions;
+		return MapManager::cellDimensions;
 	}
 }
 
