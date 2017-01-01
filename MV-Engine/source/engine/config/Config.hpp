@@ -13,7 +13,7 @@ namespace mv
 
 		namespace cell
 		{
-			const sf::Color FILL_COLOR(120, 133, 139);
+			const sf::Color FILL_COLOR(120, 133, 139); //Squirrel grey
 		}
 	}
 }
