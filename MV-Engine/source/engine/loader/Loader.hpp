@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <fstream>
 #include <SFML/System/Vector2.hpp>
 #include <string>
