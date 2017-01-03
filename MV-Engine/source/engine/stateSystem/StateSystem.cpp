@@ -2,7 +2,7 @@
 
 namespace mv
 {
-	bool StateSystem::emplaceState(std::string name, uint8_t number)
+	bool StateSystem::emplaceState(std::string name, int8_t number)
 	{
 		if (states.find(name) != states.end())
 		{
@@ -24,7 +24,7 @@ namespace mv
 		return (states.find(name) != states.end());
 	}
 
-	uint8_t StateSystem::getNumberOfState(std::string name)
+	int8_t StateSystem::getNumberOfState(std::string name)
 	{
 		auto itr = states.find(name);
 
@@ -41,7 +41,7 @@ namespace mv
 		states.erase(itr);
 		return true;
 	}
-	uint8_t StateSystem::getAmmountStates()
+	int8_t StateSystem::getAmmountStates()
 	{
 		return states.size();
 	}

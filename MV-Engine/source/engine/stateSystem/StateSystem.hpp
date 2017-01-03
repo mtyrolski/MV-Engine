@@ -10,7 +10,7 @@ namespace mv
 		//Emplaces new state into state map
 		//returns false if state with given name exist or number<0
 		//returns true if state has been added
-		static bool emplaceState(std::string name, uint8_t number);
+		static bool emplaceState(std::string name, int8_t number);
 
 		//Returns false if state with given name doesn't exist
 		//returns true if state with given name exist
@@ -18,7 +18,7 @@ namespace mv
 
 		//Returns number of state with given name
 		//returns -1 value if state doesn't exist
-		static uint8_t getNumberOfState(std::string name);
+		static int8_t getNumberOfState(std::string name);
 
 		//Erase state with given name
 		//returns false if state doesn't exist
@@ -26,9 +26,9 @@ namespace mv
 		static bool eraseState(std::string name);
 
 		//Returns ammount of states
-		static uint8_t getAmmountStates();
+		static int8_t getAmmountStates();
 
 	private:
-		static std::map<std::string, uint8_t> states;
+		static std::map<std::string, int8_t> states;
 	};
 }
