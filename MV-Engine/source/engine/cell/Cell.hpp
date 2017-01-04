@@ -6,6 +6,7 @@
 
 #include "engine/config/Config.hpp"
 #include "engine/mapManager/MapManager.hpp"
+#include "engine/stateSystem/StateSystem.hpp"
 
 namespace mv
 {
@@ -24,11 +25,8 @@ namespace mv
 		//Returns number of state
 		uint8_t getState();
 
-		//Returns name of state
-		std::string getStateName();
-
 		//Change cell's state to given name
-		//returns false if given state doesn't exist
+		//returns false if state hasn't been changed
 		//returns true if state has been changed
 		bool setState(std::string stateName);
 

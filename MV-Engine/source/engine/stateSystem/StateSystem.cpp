@@ -41,6 +41,7 @@ namespace mv
 		states.erase(itr);
 		return true;
 	}
+
 	int8_t StateSystem::getAmmountStates()
 	{
 		return states.size();

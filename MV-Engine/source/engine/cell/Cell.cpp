@@ -16,7 +16,7 @@ namespace mv
 	void Cell::changeState(int shift)
 	{
 		nextState = state + shift;
-		//nextState%=AMMOUNT_STATES
+		nextState %= StateSystem::getAmmountStates();
 	}
 
 	void Cell::changeState()
@@ -29,13 +29,8 @@ namespace mv
 		return state;
 	}
 
-	std::string Cell::getStateName()
-	{
-		return std::string(); //to do...
-	}
-
 	bool Cell::setState(std::string stateName)
 	{
-		return false; //to do...
+		state =  StateSystem::getNumberOfState(stateName);
 	}
 }
