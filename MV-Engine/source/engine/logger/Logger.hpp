@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include "engine/config/Config.hpp"
+#include "fstream";
 
 namespace mv
 {
@@ -27,9 +29,13 @@ namespace mv
 	
 	private:
 
-		std::string prefix;
+		static std::string prefix;
 
 		static void sendMessage(std::string message, Logger::STREAM stream);
+
+		static void consoleMessage(std::string message);
+
+		static void fileMessage(std::string message);
 
 		static void setPrefix(Logger::TYPE type);
 	};

@@ -23,6 +23,11 @@ namespace mv
 			constexpr auto PREFIX_WARNING = "[WARNING]";
 			constexpr auto PREFIX_ERROR = "[ERROR]";
 		}
+
+		namespace fileManager
+		{
+			constexpr auto PATH_LOG = "engine/log/log.txt";
+		}
 		
 		namespace error
 		{
