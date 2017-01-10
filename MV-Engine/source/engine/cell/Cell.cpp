@@ -2,15 +2,15 @@
 
 namespace mv
 {
-	Cell::Cell(sf::Vector2i uPos)
+	Cell::Cell(sf::Vector2i uPos, sf::Vector2f cellDimensions)
 		:unitPosition(uPos)
 	{
-		shape.setSize(MapManager::getCellDimensions());
-		shape.setOutlineThickness(MapManager::getCellDimensions().x / 10.0f); //10%
+		shape.setSize(cellDimensions);
+		shape.setOutlineThickness(cellDimensions.x / 10.0f); //10%
 
 		shape.setOutlineColor(constants::cell::FILL_COLOR); 
 
-		shape.setPosition(uPos.x*MapManager::getCellDimensions().x, uPos.y*MapManager::getCellDimensions().y);
+		shape.setPosition(uPos.x*cellDimensions.x, uPos.y*cellDimensions.y);
 	}
 
 	void Cell::changeState(int shift)
@@ -31,6 +31,12 @@ namespace mv
 
 	bool Cell::setState(std::string stateName)
 	{
-		state =  StateSystem::getNumberOfState(stateName);
+		if (StateSystem::getNumberOfState(stateName) != constants::error::stateSystem::ERROR_VALUE)
+		{
+			state = StateSystem::getNumberOfState(stateName);
+			return true;
+		}
+
+		return false;
 	}
 }

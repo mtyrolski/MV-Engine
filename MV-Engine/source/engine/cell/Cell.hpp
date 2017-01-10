@@ -5,7 +5,6 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 
 #include "engine/config/Config.hpp"
-#include "engine/mapManager/MapManager.hpp"
 #include "engine/stateSystem/StateSystem.hpp"
 
 namespace mv
@@ -14,7 +13,7 @@ namespace mv
 	{
 	public:
 
-		Cell(sf::Vector2i uPos);
+		Cell(sf::Vector2i uPos, sf::Vector2f cellDimensions);
 
 		//Change state for given shift
 		void changeState(int shift);

@@ -31,7 +31,10 @@ namespace mv
 		
 		namespace error
 		{
-
+			namespace stateSystem
+			{
+				constexpr int8_t ERROR_VALUE = -1;
+			}
 		}
 	}
 }

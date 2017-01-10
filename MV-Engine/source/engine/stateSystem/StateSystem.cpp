@@ -28,7 +28,7 @@ namespace mv
 	{
 		auto itr = states.find(name);
 
-		if (itr == states.end()) return -1;
+		if (itr == states.end()) return constants::error::stateSystem::ERROR_VALUE;
 		else return itr->second;
 	}
 
