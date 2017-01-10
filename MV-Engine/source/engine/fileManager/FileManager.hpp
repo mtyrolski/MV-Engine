@@ -15,7 +15,7 @@ namespace mv
 		};
 
 
-		static void output(std::string message, std::string path, FileManager::MODE mode);		
+		static void output(char* message, std::string path, FileManager::MODE mode);		
 	
 		};
 }
