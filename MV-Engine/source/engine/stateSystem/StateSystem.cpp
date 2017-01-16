@@ -6,12 +6,12 @@ namespace mv
 	{
 		if (states.find(name) != states.end())
 		{
-			//INFO TO LOG (soon)
+			Logger::Log(constants::error::stateSystem::STATE_HAS_FOUND, Logger::STREAM::CONSOLE, Logger::TYPE::WARNING);
 			return false;
 		}
 		else if (number < 0)
 		{
-			//INFO TO LOG (soon)
+			Logger::Log(constants::error::stateSystem::MINUS_NUMBER, Logger::STREAM::CONSOLE, Logger::TYPE::WARNING);
 			return false;
 		}
 

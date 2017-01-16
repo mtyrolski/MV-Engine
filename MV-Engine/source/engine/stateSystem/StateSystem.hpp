@@ -2,6 +2,7 @@
 
 #include <map>
 #include "engine/config/Config.hpp"
+#include "engine/logger/Logger.hpp"
 
 namespace mv
 {
