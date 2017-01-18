@@ -2,6 +2,7 @@
 
 namespace mv
 {
+	std::map<std::string, int8_t> StateSystem::states;
 	bool StateSystem::emplaceState(std::string name, int8_t number)
 	{
 		if (states.find(name) != states.end())
