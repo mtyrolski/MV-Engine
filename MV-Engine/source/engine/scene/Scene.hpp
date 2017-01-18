@@ -25,7 +25,7 @@ namespace mv
 		void clear();
 
 		//Tell whether or not the window is open
-		bool isOpen();
+		bool isOpen() const;
 
 		//Draws given collection of T objects
 		//returns false if T doesn't inhert from sf::Drawable

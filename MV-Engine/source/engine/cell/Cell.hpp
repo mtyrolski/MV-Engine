@@ -27,7 +27,7 @@ namespace mv
 		void changeState();
 
 		//Returns number of state
-		uint8_t getState();
+		uint8_t getState() const;
 
 		//Change cell's state to given name
 		//returns false if state hasn't been changed

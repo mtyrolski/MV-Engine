@@ -23,7 +23,7 @@ namespace mv
 			delete window;
 	}
 
-	bool Scene::isOpen()
+	bool Scene::isOpen() const
 	{
 		return window->isOpen();
 	}

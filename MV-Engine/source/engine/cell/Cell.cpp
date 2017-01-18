@@ -30,7 +30,7 @@ namespace mv
 		changeState(1);
 	}
 
-	uint8_t Cell::getState()
+	uint8_t Cell::getState() const
 	{
 		return state;
 	}
