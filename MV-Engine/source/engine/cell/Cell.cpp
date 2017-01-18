@@ -2,6 +2,12 @@
 
 namespace mv
 {
+	void Cell::draw(sf::RenderTarget & target, sf::RenderStates states) const
+	{
+		target.draw(shape, states);
+	}
+
+
 	Cell::Cell(sf::Vector2i uPos, sf::Vector2f cellDimensions)
 		:unitPosition(uPos)
 	{
