@@ -23,12 +23,6 @@ namespace mv
 			delete window;
 	}
 
-	void Scene::refresh()
-	{
-		clear();
-		display();
-	}
-
 	bool Scene::isOpen()
 	{
 		return window->isOpen();

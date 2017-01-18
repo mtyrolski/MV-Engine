@@ -17,6 +17,9 @@ namespace mv
 		
 		//Returns dimensions of cell (in px)
 		static sf::Vector2f getCellDimensions();
+		
+		//Returns pointer to cell's vector
+		static std::vector<Cell> *getCellStorage();
 
 	private:
 

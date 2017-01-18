@@ -19,5 +19,10 @@ namespace mv
 	{
 		return MapManager::cellDimensions;
 	}
+
+	std::vector<Cell>* MapManager::getCellStorage()
+	{
+		return &map;
+	}
 }
 
