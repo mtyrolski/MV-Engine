@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics/Color.hpp>
+#include <SFML/System/Vector2.hpp>
 
 namespace mv
 {
@@ -36,6 +37,11 @@ namespace mv
 				constexpr int8_t ERROR_VALUE = -1;
 				constexpr auto STATE_HAS_FOUND = "State with name already exists";
 				constexpr auto MINUS_NUMBER = "State with given number cannot be created (number<0)";
+			}
+
+			namespace scene
+			{
+				constexpr auto T_DOES_NOT_INHERT_FROM_DRAWABLE = "T doesn't inhert from sf::Drawable. It cannont be drawn by this method";
 			}
 		}
 

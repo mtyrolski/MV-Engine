@@ -1,9 +1,12 @@
 #pragma once
+#include <type_traits>
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
 
 #include "engine/config/Config.hpp"
+#include "engine/logger/logger.hpp"
+
 
 namespace mv
 {
@@ -39,10 +42,4 @@ namespace mv
 
 		sf::RenderWindow *window;
 	};
-
-	template<class T>
-	inline bool Scene::drawCollection(std::vector<T>* collection)
-	{
-		
-	}
 }
