@@ -38,5 +38,12 @@ namespace mv
 				constexpr auto MINUS_NUMBER = "State with given number cannot be created (number<0)";
 			}
 		}
+
+		namespace defaults
+		{
+			constexpr auto UNNAMED = "unnamed";
+			const sf::Vector2f WINDOW_DIMENSIONS = { 600,600 };
+		}
+
 	}
 }
