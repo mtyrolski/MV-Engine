@@ -38,6 +38,7 @@ namespace mv
 				constexpr auto STATE_HAS_FOUND = "State with name already exists";
 				constexpr auto MINUS_NUMBER = "State with given number cannot be created (number<0)";
 				constexpr auto NUMBER_HAS_NOT_FOUND = "State with given number doesn't exist";
+				constexpr auto STATE_DOES_NOT_EXIST = "State with given name doesn't exist";
 			}
 
 			namespace scene
