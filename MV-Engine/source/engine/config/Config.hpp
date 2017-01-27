@@ -37,6 +37,7 @@ namespace mv
 				constexpr int8_t ERROR_VALUE = -1;
 				constexpr auto STATE_HAS_FOUND = "State with name already exists";
 				constexpr auto MINUS_NUMBER = "State with given number cannot be created (number<0)";
+				constexpr auto NUMBER_HAS_NOT_FOUND = "State with given number doesn't exist";
 			}
 
 			namespace scene
@@ -55,6 +56,7 @@ namespace mv
 		{
 			constexpr auto UNNAMED = "unnamed";
 			const sf::Vector2f WINDOW_DIMENSIONS = { 600,600 };
+			const auto defaultState = std::make_pair<std::string, int8_t>("default", 1);
 		}
 
 	}
