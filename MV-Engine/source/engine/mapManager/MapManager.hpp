@@ -10,7 +10,8 @@ namespace mv
 	public:
 
 		//Initialization (on the begining of game process)
-		static void init(sf::Vector2i uWorldSize, const sf::Vector2f& celldimensions);
+		//returns false if unitWorldSize<=0 || cellDimensions<=0
+		static bool init(sf::Vector2i uWorldSize, const sf::Vector2f& celldimensions);
 
 		//Returns world size in units
 		static sf::Vector2i getUnitWorldSize();
@@ -20,6 +21,9 @@ namespace mv
 		
 		//Returns pointer to cell's vector
 		static std::vector<Cell> *getCellStorage();
+
+		//Construct whole world 
+		static bool constructWholeWorld(uint8_t state);
 
 	private:
 

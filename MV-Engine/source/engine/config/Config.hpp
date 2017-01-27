@@ -43,6 +43,11 @@ namespace mv
 			{
 				constexpr auto T_DOES_NOT_INHERT_FROM_DRAWABLE = "T doesn't inhert from sf::Drawable. It cannont be drawn by this method";
 			}
+
+			namespace mapManager
+			{
+				constexpr auto NEGATIVE_VALUES = "You need to enter a positive values. Dimensions of map/cell cannot be < 0!";
+			}
 		}
 
 		namespace defaults
