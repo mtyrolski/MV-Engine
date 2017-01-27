@@ -18,6 +18,10 @@ namespace mv
 		//returns true if state with given name exist
 		static bool isStateExist(std::string name);
 
+		//Returns false if state with given number doesn't exist
+		//returns true if state with given number exist
+		static bool isStateExist(uint8_t number);
+
 		//Returns number of state with given name
 		//returns -1 value if state doesn't exist
 		static int8_t getNumberOfState(std::string name);

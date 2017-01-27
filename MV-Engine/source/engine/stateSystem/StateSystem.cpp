@@ -25,6 +25,17 @@ namespace mv
 		return (states.find(name) != states.end());
 	}
 
+	bool StateSystem::isStateExist(uint8_t number)
+	{
+		for (auto&var : states)
+		{
+			if (var.second == number)
+				return true;
+		}
+
+		return false;
+	}
+
 	int8_t StateSystem::getNumberOfState(std::string name)
 	{
 		auto itr = states.find(name);

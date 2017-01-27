@@ -47,6 +47,7 @@ namespace mv
 			namespace mapManager
 			{
 				constexpr auto NEGATIVE_VALUES = "You need to enter a positive values. Dimensions of map/cell cannot be < 0!";
+				constexpr auto NOT_INITED = "You need to init MapManager by 'init'";
 			}
 		}
 
