@@ -2,19 +2,22 @@
 
 #include <vector>
 #include <map>
+#include <SFML/Graphics/Texture.hpp>
+
 namespace mv
 {
+	template<class T>
 	class Cache
 	{
 	public:
-		Cache();
-
-		void get(std::string name);
-
+		T& get(std::string& path);
 	private:
+		static std::map<std::string, T> resources;
+	};
 
-		template <class T>
-		std::vector<std::map<int,T>> resources;
-		/*map<ID,class>*/
+	class TextureCache :public Cache<sf::Texture>
+	{
+	public:
+		TextureCache();
 	};
 }
