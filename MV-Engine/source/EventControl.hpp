@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Window/Event.hpp>
+#include "engine/scene/Scene.hpp"
 
 /*
 				===---===
@@ -19,6 +20,14 @@ namespace mv
 {
 	class EventControl
 	{
-	
+
+	public:
+
+		EventControl(Scene *scene);
+		void checkEvent(sf::Event *event);
+
+	private:
+
+		Scene* m_scene;
 	};
 }
