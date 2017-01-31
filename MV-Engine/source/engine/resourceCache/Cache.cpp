@@ -2,10 +2,6 @@
 
 namespace mv
 {
-	TextureCache::TextureCache()
-	{
-	}
-
 	template<class T>
 	T& Cache<T>::get(std::string& path)
 	{

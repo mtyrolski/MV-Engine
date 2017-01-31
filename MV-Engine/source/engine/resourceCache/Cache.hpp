@@ -14,10 +14,4 @@ namespace mv
 	private:
 		static std::map<std::string, T> resources;
 	};
-
-	class TextureCache :public Cache<sf::Texture>
-	{
-	public:
-		TextureCache();
-	};
 }
