@@ -7,6 +7,10 @@ namespace mv
 {
 	class MapManager final
 	{
+	private:
+
+		static void createWorld(std::string defaultStateName);
+
 	public:
 
 		//Initialization (on the begining of game process)
@@ -23,7 +27,7 @@ namespace mv
 		static std::vector<Cell> *getCellStorage();
 
 		//Construct whole world 
-		static bool constructWholeWorld(uint8_t state);
+		static bool constructWholeWorld(std::string defaultState);
 
 	private:
 
