@@ -24,7 +24,7 @@ namespace mv
 	public:
 
 		EventControl(Scene *scene);
-		void checkEvent(sf::Event *event);
+		void checkEvent(sf::Event &event);
 
 	private:
 

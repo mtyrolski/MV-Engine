@@ -7,11 +7,11 @@ namespace mv
 	{	
 	}
 
-	void EventControl::checkEvent(sf::Event * event)
+	void EventControl::checkEvent(sf::Event & event)
 	{
-		while(m_scene->GetPointerToWindow()->pollEvent(*event))
+		while(m_scene->GetPointerToWindow()->pollEvent(event))
 		{
-			switch (event->type)
+			switch (event.type)
 			{	
 				case sf::Event::Closed:
 				{

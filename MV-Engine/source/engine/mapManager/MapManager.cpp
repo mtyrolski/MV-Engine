@@ -8,9 +8,9 @@ namespace mv
 
 	void MapManager::createWorld(std::string defaultStateName)
 	{
-		for (size_t j = 0; j < unitWorldSize.y; j++)
+		for (int j = 0; j < unitWorldSize.y; j++)
 		{
-			for (size_t i = 0; i < unitWorldSize.x; i++)
+			for (int i = 0; i < unitWorldSize.x; i++)
 			{
 				map.emplace_back(sf::Vector2i{i,j}, cellDimensions, defaultStateName);
 			}
