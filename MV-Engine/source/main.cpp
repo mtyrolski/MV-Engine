@@ -3,6 +3,7 @@
 #include "engine/loader/Loader.hpp"
 #include "EventControl.hpp"
 #include <SFML/Window/Event.hpp>
+#include "engine/resourceCache/Cache.hpp"
 
 int main()
 {
@@ -26,6 +27,7 @@ int main()
 
 		eventControl.checkEvent(event);
 	}
+
 
 	return 0;
 }

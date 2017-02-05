@@ -14,7 +14,7 @@ namespace mv
 			auto result = resources.find(path);
 
 			if (result != resources.end())
-				return &result;	
+				return &result;
 		}
 
 		{//Try to load it
@@ -25,7 +25,7 @@ namespace mv
 				throw invalid_argument("Cache can't find resource in this path.");
 			}
 
-			resoruces.emplace_back(path,resource);
+			resoruces.emplace_back(path, resource);
 
 			return &resources[path];
 		}
