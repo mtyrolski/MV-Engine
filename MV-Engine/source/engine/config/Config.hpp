@@ -9,7 +9,7 @@ namespace mv
 	{
 		namespace loader
 		{
-			constexpr auto DATA_PATH = "options.txt";
+			constexpr auto DATA_PATH = "source/engine/loader/options.txt";
 		}
 
 		namespace cell

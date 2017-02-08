@@ -4,7 +4,7 @@ namespace mv
 {
 	void Loader::loadData()
 	{
-		std::fstream file(constants::loader::DATA_PATH, std::ios::in);
+		std::ifstream file(constants::loader::DATA_PATH);
 
 		if (file.good())
 		{
