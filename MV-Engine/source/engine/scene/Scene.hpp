@@ -30,7 +30,7 @@ namespace mv
 
 		//Draws given collection of T objects
 		//returns false if T doesn't inhert from sf::Drawable
-		template<class T>
+		template < typename T= typename std::enable_if< std::is_base_of<sf::Drawable,T>::value,T>::type>
 		bool drawCollection(std::vector<T> *collection);
 
 
@@ -46,22 +46,13 @@ namespace mv
 	};
 
 
-	template<class T>
+	template<typename T>
 	inline bool Scene::drawCollection(std::vector<T>* collection)
 	{
-		if (!std::is_base_of<T, sf::Drawable>::value)
-		{
-			Logger::Log(constants::error::scene::T_DOES_NOT_INHERT_FROM_DRAWABLE, Logger::STREAM::BOTH, Logger::TYPE::WARNING);
-			return false;
-		}
-		
-
-		for (sf::Drawable&var : collection)
-			var.draw();
-		
-
-		
+		for (auto&var : *collection)
+			window->draw(var);
 
 		return true;
 	}
+
 }
