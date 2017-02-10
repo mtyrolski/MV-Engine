@@ -4,6 +4,10 @@
 #include "EventControl.hpp"
 #include <SFML/Window/Event.hpp>
 #include "engine/resourceCache/Cache.hpp"
+#include "engine/mapManager/MapManager.hpp"
+#include "engine/cell/Cell.hpp"
+
+#include <vector>
 
 int main()
 {
@@ -20,11 +24,14 @@ int main()
 	}
 
 	mv::EventControl eventControl(scene);
+	mv::MapManager::constructWholeWorld(mv::constants::defaults::EMPTY);
 
+
+	//main game loop
 	while (scene->isOpen())
 	{
 		sf::Event event;
-
+		scene->drawCollection<mv::Cell>(mv::MapManager::getCellStorage());
 		eventControl.checkEvent(event);
 	}
 

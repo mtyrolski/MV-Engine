@@ -45,7 +45,7 @@ namespace mv
 
 	template<class T>
 	bool Scene::drawCollection(std::vector<T>* collection)
-	{
+	{/*
 		if (!std::is_base_of(T, sf::Drawable))
 		{
 			Logger::Log(constants::error::scene::T_DOES_NOT_INHERT_FROM_DRAWABLE, Logger::STREAM::BOTH, Logger::TYPE::WARNING);
@@ -53,7 +53,7 @@ namespace mv
 		}
 
 		for (auto&var : collection)
-			var.draw();
+			var.draw();*/
 		
 		return true;
 	}

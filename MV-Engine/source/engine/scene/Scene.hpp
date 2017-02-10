@@ -6,6 +6,7 @@
 
 #include "engine/config/Config.hpp"
 #include "engine/logger/logger.hpp"
+#include "engine/cell/Cell.hpp"
 
 
 namespace mv

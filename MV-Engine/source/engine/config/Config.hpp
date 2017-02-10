@@ -55,6 +55,7 @@ namespace mv
 
 		namespace defaults
 		{
+			constexpr auto EMPTY = "EMPTY";
 			constexpr auto UNNAMED = "unnamed";
 			const sf::Vector2f WINDOW_DIMENSIONS = { 600,600 };
 			const auto defaultState = std::make_pair<std::string, int8_t>("default", 1);
