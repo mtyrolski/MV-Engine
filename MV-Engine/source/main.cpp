@@ -12,7 +12,7 @@
 int main()
 {
 	mv::Scene* scene;
-	mv::MapManager mapManager;
+	mv::MapManager* mapManager;
 
 	{
 		mv::Initializator initializator;
@@ -22,18 +22,18 @@ int main()
 		loader.loadData();
 
 		scene = new mv::Scene(loader.title, sf::Vector2f(loader.ammount.x*loader.cellDimensions.x, loader.ammount.y*loader.cellDimensions.y));
+		mapManager = new mv::MapManager(loader.ammount, loader.cellDimensions);
 	}
 
 	mv::EventControl eventControl(scene);
-	mapManager.constructWholeWorld(mv::constants::defaults::EMPTY);
+	mapManager->constructWholeWorld(mv::constants::defaults::EMPTY);
 
 
 	//main game loop
 	while (scene->isOpen())
 	{
 		sf::Event event;
-		//std::vector<float> t;
-		//scene->drawCollection<float>(&t);
+		scene->drawCollection<mv::Cell>(mapManager->getCellStorage());
 		eventControl.checkEvent(event);
 	}
 

@@ -12,13 +12,13 @@
 namespace mv
 {
 	class Scene
-	{	
+	{
 	public:
 		//Constructor which creates a window
 		Scene(std::string title = constants::defaults::UNNAMED, sf::Vector2f dimensions = constants::defaults::WINDOW_DIMENSIONS);
 
 		~Scene();
-		
+
 		//Display on screen what has been rendered to the window so far
 		void display();
 
@@ -33,6 +33,7 @@ namespace mv
 		template<class T>
 		bool drawCollection(std::vector<T> *collection);
 
+
 		sf::RenderWindow *GetPointerToWindow();
 
 		void close();
@@ -43,4 +44,24 @@ namespace mv
 
 		sf::RenderWindow *window;
 	};
+
+
+	template<class T>
+	inline bool Scene::drawCollection(std::vector<T>* collection)
+	{
+		if (!std::is_base_of<T, sf::Drawable>::value)
+		{
+			Logger::Log(constants::error::scene::T_DOES_NOT_INHERT_FROM_DRAWABLE, Logger::STREAM::BOTH, Logger::TYPE::WARNING);
+			return false;
+		}
+		
+
+		for (sf::Drawable&var : collection)
+			var.draw();
+		
+
+		
+
+		return true;
+	}
 }
