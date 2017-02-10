@@ -12,6 +12,7 @@
 int main()
 {
 	mv::Scene* scene;
+	mv::MapManager mapManager;
 
 	{
 		mv::Initializator initializator;
@@ -24,14 +25,15 @@ int main()
 	}
 
 	mv::EventControl eventControl(scene);
-	mv::MapManager::constructWholeWorld(mv::constants::defaults::EMPTY);
+	mapManager.constructWholeWorld(mv::constants::defaults::EMPTY);
 
 
 	//main game loop
 	while (scene->isOpen())
 	{
 		sf::Event event;
-		scene->drawCollection<mv::Cell>(mv::MapManager::getCellStorage());
+		//std::vector<float> t;
+		//scene->drawCollection<float>(&t);
 		eventControl.checkEvent(event);
 	}
 
