@@ -2,8 +2,9 @@
 
 namespace mv
 {
-	std::map<std::string, int8_t> StateSystem::states;
-	bool StateSystem::emplaceState(std::string name, int8_t number)
+	std::map<std::string, std::pair<int8_t,sf::Color>> StateSystem::states;
+
+	bool StateSystem::emplaceState(std::string name, int8_t number, sf::Color color)
 	{
 		if (states.find(name) != states.end())
 		{
@@ -16,7 +17,7 @@ namespace mv
 			return false;
 		}
 
-		states.emplace(name, number);
+		states.emplace(name, std::pair<int8_t, sf::Color>{number, color});
 		return true;
 	}
 
@@ -29,7 +30,7 @@ namespace mv
 	{
 		for (auto&var : states)
 		{
-			if (var.second == number)
+			if (var.second.first == number)
 				return true;
 		}
 
@@ -41,7 +42,7 @@ namespace mv
 		auto itr = states.find(name);
 
 		if (itr == states.end()) return constants::error::stateSystem::ERROR_VALUE;
-		else return itr->second;
+		else return itr->second.first;
 	}
 
 	bool StateSystem::eraseState(std::string name)
