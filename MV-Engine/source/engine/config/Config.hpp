@@ -27,7 +27,7 @@ namespace mv
 
 		namespace fileManager
 		{
-			constexpr auto PATH_LOG = "engine/log/log.txt";
+			constexpr auto PATH_LOG = "source/data/log/log.txt";
 		}
 		
 		namespace stateSystem

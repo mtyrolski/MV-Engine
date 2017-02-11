@@ -2,7 +2,10 @@
 
 #include <string>
 #include "engine/config/Config.hpp"
-#include "fstream";
+#include <fstream>
+#include <iostream>
+#include <chrono>
+#include <ctime>
 
 namespace mv
 {
@@ -29,14 +32,12 @@ namespace mv
 	
 	private:
 
-		static std::string prefix;
+		static void sendMessage(std::string message, Logger::STREAM stream, std::string &prefix);
 
-		static void sendMessage(std::string message, Logger::STREAM stream);
+		static void consoleMessage(std::string message, std::string &prefix, std::time_t& time);
 
-		static void consoleMessage(std::string message);
+		static void fileMessage(std::string message, std::string &prefix, std::time_t& time);
 
-		static void fileMessage(std::string message);
-
-		static void setPrefix(Logger::TYPE type);
+		static void setPrefix(Logger::TYPE type,std::string &prefix);
 	};
 }

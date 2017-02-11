@@ -1,77 +1,87 @@
 #include "Logger.hpp"
 
+#pragma warning(disable : 4996) //_CRT_SECURE_NO_WARNINGS
+
 namespace mv
 {
-	std::string Logger::prefix;
-
 	void Logger::Log(std::string message, Logger::STREAM stream, Logger::TYPE type)
 	{
-		setPrefix(type);
-		sendMessage(message, stream);
+		std::string prefix;
+		setPrefix(type,prefix);
+		sendMessage(message, stream,prefix);
 	}
 
-	void Logger::sendMessage(std::string message, Logger::STREAM stream)
+	void Logger::sendMessage(std::string message, Logger::STREAM stream, std::string &prefix)
 	{
+		std::chrono::time_point<std::chrono::system_clock> date = std::chrono::system_clock::now();
+		std::time_t time = std::chrono::system_clock::to_time_t(date);
+
 		switch (stream)
 		{
 			case Logger::STREAM::FILE:
 			{
-				fileMessage(message);
+				fileMessage(message,prefix,time);
 				break;
 			}
 
 			case Logger::STREAM::CONSOLE:
 			{
-				consoleMessage(message);
+				consoleMessage(message,prefix, time);
 				break;
 			}
 
 			case Logger::STREAM::BOTH:
 			{
-				consoleMessage(message);
-				fileMessage(message);
+				consoleMessage(message,prefix, time);
+				fileMessage(message,prefix, time);
 				break;
 			}
 		}
 	}
 
-	void Logger::consoleMessage(std::string message)
+	void Logger::consoleMessage(std::string message, std::string &prefix, std::time_t& time)
 	{
-		//to do
+		std::cout << std::ctime(&time);
+		std::cout << prefix << ' ';
+		std::cout << message << "\n\n";
 	}
 
-	void Logger::fileMessage(std::string message)
+	void Logger::fileMessage(std::string message, std::string &prefix, std::time_t& time)
 	{
-		//to do FileManager
+		std::ofstream file(constants::fileManager::PATH_LOG);
+
+		file << std::ctime(&time);
+		file << prefix << ' ';
+		file << message << "\n\n";
 	}
 
-	void Logger::setPrefix(Logger::TYPE type)
+	void Logger::setPrefix(Logger::TYPE type, std::string &prefix)
 	{
 		switch (type)
 		{
 
 			case Logger::TYPE::ERROR:
 			{
-				Logger::prefix = constants::logger::PREFIX_ERROR;
+				prefix = constants::logger::PREFIX_ERROR;
 				break;
 			}
 
 				
 			case Logger::TYPE::INFO:
 			{
-				Logger::prefix = constants::logger::PREFIX_INFO;
+				prefix = constants::logger::PREFIX_INFO;
 				break;
 			}
 			
 			case Logger::TYPE::SUGGESTION:
 			{
-				Logger::prefix = constants::logger::PREFIX_SUGGESTION;
+				prefix = constants::logger::PREFIX_SUGGESTION;
 				break;
 			}
 			
 			case Logger::TYPE::WARNING:
 			{
-				Logger::prefix = constants::logger::PREFIX_WARNING;
+				prefix = constants::logger::PREFIX_WARNING;
 				break;
 			}
 		}
