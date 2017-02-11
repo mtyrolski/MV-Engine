@@ -39,6 +39,7 @@ namespace mv
 		{
 			namespace stateSystem
 			{
+				constexpr auto ERROR_NAME = "ERROR_NAME - CHECK LOG";
 				constexpr auto ERROR_VALUE = -1;
 				constexpr auto STATE_HAS_FOUND = "State with name already exists";
 				constexpr auto MINUS_NUMBER = "State with given number cannot be created (number<0)";

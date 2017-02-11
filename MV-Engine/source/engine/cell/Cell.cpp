@@ -30,6 +30,7 @@ namespace mv
 	{
 		nextState = state + shift;
 		nextState %= StateSystem::getAmmountStates();
+		setColor(StateSystem::getColorOfState(state));
 	}
 
 	void Cell::changeState()
@@ -47,6 +48,7 @@ namespace mv
 		if (StateSystem::getNumberOfState(stateName) != constants::error::stateSystem::ERROR_VALUE)
 		{
 			state = StateSystem::getNumberOfState(stateName);
+			setColor(StateSystem::getColorOfState(stateName));
 			return true;
 		}
 

@@ -33,6 +33,18 @@ namespace mv
 		//returns -1 value if state doesn't exist
 		static int8_t getNumberOfState(std::string name);
 
+		//Returns color of state
+		//returns white if state with given name does not exist
+		static sf::Color getColorOfState(std::string name);
+
+		//Returns color of state
+		//returns white if state with given number does not exist
+		static sf::Color getColorOfState(int8_t number);
+
+		//Returns name of state
+		//returns -1 if state with given number doesn't exist
+		static std::string getNameOfState(int8_t number);
+
 		//Erase state with given name
 		//returns false if state doesn't exist
 		//returns true if state has been removed

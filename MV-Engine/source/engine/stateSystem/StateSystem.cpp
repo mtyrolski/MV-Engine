@@ -72,6 +72,34 @@ namespace mv
 		else return itr->second.first;
 	}
 
+	sf::Color StateSystem::getColorOfState(std::string name)
+	{
+		if (StateSystem::isStateExist(name))
+			return states[name].second;
+		return sf::Color::White;
+	}
+
+	sf::Color StateSystem::getColorOfState(int8_t number)
+	{
+		auto itr = std::find(states.begin(), states.end(), StateSystem::getNameOfState(number));
+		
+		if (itr == states.end())
+			return sf::Color::White;
+
+		return itr->second.second;
+	}
+
+	std::string StateSystem::getNameOfState(int8_t number)
+	{
+		for (auto&var : states)
+			if (var.second.first == number)
+				return var.first;
+
+
+		Logger::Log(constants::error::stateSystem::NUMBER_HAS_NOT_FOUND, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
+		return constants::error::stateSystem::ERROR_NAME;
+	}
+
 	bool StateSystem::eraseState(std::string name)
 	{
 		auto itr = states.find(name);

@@ -28,12 +28,15 @@ int main()
 	mv::EventControl eventControl(scene);
 	mapManager->constructWholeWorld(mv::constants::defaults::EMPTY);
 
-
 	//main game loop
 	while (scene->isOpen())
 	{
 		sf::Event event;
+
+		scene->clear();
 		scene->drawCollection<mv::Cell>(mapManager->getCellStorage());
+		scene->display();
+
 		eventControl.checkEvent(event);
 	}
 

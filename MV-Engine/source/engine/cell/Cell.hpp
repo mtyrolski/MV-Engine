@@ -16,6 +16,8 @@ namespace mv
 		
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
+		void setColor(sf::Color color);
+
 	public:
 
 		Cell(sf::Vector2i uPos = { 0,0 }, sf::Vector2f cellDimensions = { 0,0 }, std::string stateName =constants::defaults::EMPTY);
