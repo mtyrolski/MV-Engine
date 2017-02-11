@@ -14,16 +14,16 @@ namespace mv
 	}
 
 
-	MapManager::MapManager(sf::Vector2i uWorldSize, const sf::Vector2f & celldimensions)
+	MapManager::MapManager(sf::Vector2i uWorldSize, const sf::Vector2f & cellDim)
 	{
-		if (uWorldSize.x <= 0 || cellDimensions.x <= 0 ||
-			uWorldSize.y <= 0 || cellDimensions.y <= 0)
+		if (uWorldSize.x <= 0 || cellDim.x <= 0 ||
+			uWorldSize.y <= 0 || cellDim.y <= 0)
 		{
 			Logger::Log(constants::error::mapManager::NEGATIVE_VALUES, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
 			return;
 		}
 		MapManager::unitWorldSize = uWorldSize;
-		MapManager::cellDimensions = celldimensions;
+		MapManager::cellDimensions = cellDim;
 	}
 
 	sf::Vector2i MapManager::getUnitWorldSize()

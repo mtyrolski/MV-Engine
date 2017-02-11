@@ -6,7 +6,8 @@
 
 namespace mv
 {
-	template<class T>
+	//?
+	template < typename T = typename std::enable_if< std::is_base_of<sf::Texture,T>::value,T>::type>
 	class Cache
 	{
 	public:
