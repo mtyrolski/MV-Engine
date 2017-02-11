@@ -7,6 +7,11 @@ namespace mv
 		target.draw(shape, states);
 	}
 
+	void Cell::setColor(sf::Color color)
+	{
+		shape.setFillColor(color);
+	}
+
 	Cell::Cell(sf::Vector2i uPos, sf::Vector2f cellDimensions, std::string stateName)
 		:unitPosition(uPos)
 	{
@@ -17,13 +22,16 @@ namespace mv
 
 		shape.setPosition(uPos.x*cellDimensions.x, uPos.y*cellDimensions.y);
 
-		if (!StateSystem::isStateExist(state))
+		if (!StateSystem::isStateExist(stateName))
 		{
 			Logger::Log(constants::error::stateSystem::STATE_DOES_NOT_EXIST, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
 			state = StateSystem::getNumberOfState(constants::defaults::EMPTY);
 		}
 		else
+		{
 			state = StateSystem::getNumberOfState(stateName);
+			setColor(StateSystem::getColorOfState(state));
+		}
 	}
 
 	void Cell::changeState(int shift)

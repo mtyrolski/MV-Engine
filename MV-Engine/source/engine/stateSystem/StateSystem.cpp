@@ -81,12 +81,13 @@ namespace mv
 
 	sf::Color StateSystem::getColorOfState(int8_t number)
 	{
-		auto itr = std::find(states.begin(), states.end(), StateSystem::getNameOfState(number));
+		auto itr = states.find(StateSystem::getNameOfState(number));
 		
 		if (itr == states.end())
 			return sf::Color::White;
 
 		return itr->second.second;
+		return sf::Color();
 	}
 
 	std::string StateSystem::getNameOfState(int8_t number)
