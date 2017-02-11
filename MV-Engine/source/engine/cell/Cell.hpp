@@ -18,7 +18,7 @@ namespace mv
 
 	public:
 
-		Cell(sf::Vector2i uPos = { 0,0 }, sf::Vector2f cellDimensions = { 0,0 }, std::string stateName =constants::defaults::defaultState.first);
+		Cell(sf::Vector2i uPos = { 0,0 }, sf::Vector2f cellDimensions = { 0,0 }, std::string stateName =constants::defaults::EMPTY);
 
 		//Change state for given shift
 		void changeState(int shift);

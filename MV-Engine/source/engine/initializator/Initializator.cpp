@@ -13,7 +13,7 @@ namespace mv
 
 	void Initializator::init()
 	{
-		StateSystem::emplaceState(constants::defaults::defaultState.first, constants::defaults::defaultState.second);
+		StateSystem::readStatesFromFile(constants::stateSystem::STATES_PATH);
 	}
 }
 

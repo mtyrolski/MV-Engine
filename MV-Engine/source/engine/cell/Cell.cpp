@@ -19,8 +19,8 @@ namespace mv
 
 		if (!StateSystem::isStateExist(state))
 		{
-			Logger::Log(constants::error::stateSystem::STATE_DOES_NOT_EXIST, Logger::STREAM::BOTH, Logger::TYPE::WARNING);
-			state = constants::defaults::defaultState.second;
+			Logger::Log(constants::error::stateSystem::STATE_DOES_NOT_EXIST, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
+			state = StateSystem::getNumberOfState(constants::defaults::EMPTY);
 		}
 		else
 			state = StateSystem::getNumberOfState(stateName);

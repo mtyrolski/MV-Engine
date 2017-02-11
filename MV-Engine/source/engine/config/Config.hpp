@@ -30,11 +30,16 @@ namespace mv
 			constexpr auto PATH_LOG = "engine/log/log.txt";
 		}
 		
+		namespace stateSystem
+		{
+			constexpr auto STATES_PATH = "source/data/states/states.txt";
+		}
+		
 		namespace error
 		{
 			namespace stateSystem
 			{
-				constexpr int8_t ERROR_VALUE = -1;
+				constexpr auto ERROR_VALUE = -1;
 				constexpr auto STATE_HAS_FOUND = "State with name already exists";
 				constexpr auto MINUS_NUMBER = "State with given number cannot be created (number<0)";
 				constexpr auto NUMBER_HAS_NOT_FOUND = "State with given number doesn't exist";
@@ -51,6 +56,11 @@ namespace mv
 				constexpr auto NEGATIVE_VALUES = "You need to enter a positive values. Dimensions of map/cell cannot be < 0!";
 				constexpr auto NOT_INITED = "You need to init MapManager by 'init'";
 			}
+
+			namespace fileManager
+			{
+				constexpr auto PATH_IS_NOT_CORRET = "Given path is not correct";
+			}
 		}
 
 		namespace defaults
@@ -58,7 +68,6 @@ namespace mv
 			constexpr auto EMPTY = "EMPTY";
 			constexpr auto UNNAMED = "unnamed";
 			const sf::Vector2f WINDOW_DIMENSIONS = { 600,600 };
-			const auto defaultState = std::make_pair<std::string, int8_t>("default", 1);
 		}
 
 	}

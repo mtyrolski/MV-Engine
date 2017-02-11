@@ -4,6 +4,7 @@
 #include "engine/logger/Logger.hpp"
 #include <SFML/Graphics/Color.hpp>
 
+#include <fstream>
 #include <map>
 namespace mv
 {

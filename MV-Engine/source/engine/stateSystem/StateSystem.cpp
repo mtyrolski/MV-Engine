@@ -21,6 +21,33 @@ namespace mv
 		return true;
 	}
 
+	bool StateSystem::readStatesFromFile(std::string path)
+	{
+		std::ifstream file(path);
+
+		if (!file.good())
+		{
+			Logger::Log(mv::constants::error::fileManager::PATH_IS_NOT_CORRET,mv::Logger::STREAM::BOTH,mv::Logger::TYPE::ERROR);
+			return false;
+		}
+
+		int8_t number;
+		int colorComponents[3];
+		std::string name;
+
+		while (file >> name)
+		{
+			file >> number;
+
+			for (int8_t i = 0; i < 3; i++)
+				file >> colorComponents[i];
+			
+			StateSystem::emplaceState(name, number, sf::Color(colorComponents[0], colorComponents[1], colorComponents[2]));
+		}
+
+		return true;
+	}
+
 	bool StateSystem::isStateExist(std::string name)
 	{
 		return (states.find(name) != states.end());
