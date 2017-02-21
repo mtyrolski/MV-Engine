@@ -14,14 +14,14 @@ namespace mv
 	{
 		/* ===Objects=== */
 	public:
-		static enum STREAM
+		enum class STREAM
 		{
 			CONSOLE = 0,
 			FILE = 1,
 			BOTH = 2
 		};
 
-		static enum TYPE
+		enum class TYPE
 		{
 			INFO = 0,
 			SUGGESTION = 1,

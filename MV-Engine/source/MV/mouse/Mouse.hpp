@@ -11,7 +11,7 @@ namespace mv
 	{
 		/* ===Objects=== */
 	public:
-		static enum TYPE
+		enum class TYPE
 		{
 			DEFAULT = 0
 		};

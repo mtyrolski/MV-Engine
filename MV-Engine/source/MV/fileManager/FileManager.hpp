@@ -8,10 +8,10 @@ namespace mv
 	{
 		/* ===Objects=== */
 	public:
-		static enum MODE
+		enum class MODE
 		{
-			OVERWRITE = 0,
-			APPEND = 1
+			OVERWRITE,
+			APPEND
 		};
 	protected:
 	private:
