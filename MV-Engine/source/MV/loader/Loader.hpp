@@ -10,15 +10,8 @@ namespace mv
 {
 	class Loader final
 	{
+		/* ===Objects=== */
 	public:
-
-		//Loads data from file
-		//title
-		//dimensions
-		//amount
-		//speed of camera(view)
-		void loadData();
-
 		//title of the window
 		std::string title;
 
@@ -30,5 +23,19 @@ namespace mv
 
 		//speed of camera(view)
 		float moveSpeed;
+	protected:
+	private:
+
+		/* ===Methods=== */
+	public:
+
+		//Loads data from file
+		//title
+		//dimensions
+		//amount
+		//speed of camera(view)
+		void loadData();
+	protected:
+	private:
 	};
 }

@@ -13,14 +13,26 @@ namespace mv
 {
 	class Cell : public sf::Drawable
 	{
-		
-		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+		/* ===Objects=== */
+	public:
+	protected:
+	private:
+		//Shape of cell
+		sf::RectangleShape shape;
 
-		void setColor(sf::Color color);
+		//State of cell
+		uint8_t state;
 
+		//State of cell in next cycle
+		uint8_t nextState;
+
+		//Position in unit system
+		const sf::Vector2i unitPosition;
+
+		/* ===Methods=== */
 	public:
 
-		Cell(sf::Vector2i uPos = { 0,0 }, sf::Vector2f cellDimensions = { 0,0 }, std::string stateName =constants::defaults::EMPTY);
+		Cell(sf::Vector2i uPos = { 0,0 }, sf::Vector2f cellDimensions = { 0,0 }, std::string stateName = constants::defaults::EMPTY);
 
 		//Change state for given shift
 		void changeState(int shift);
@@ -38,19 +50,10 @@ namespace mv
 
 		//Updates cell state to next state
 		void update();
-
+	protected:
 	private:
+		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-		//Shape of cell
-		sf::RectangleShape shape;
-
-		//State of cell
-		uint8_t state;
-
-		//State of cell in next cycle
-		uint8_t nextState;
-
-		//Position in unit system
-		const sf::Vector2i unitPosition;
+		void setColor(sf::Color color);
 	};
 }

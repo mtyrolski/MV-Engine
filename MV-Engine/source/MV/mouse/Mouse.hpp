@@ -9,18 +9,21 @@ namespace mv
 {
 	class Mouse : public sf::Drawable
 	{
-		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-	
+		/* ===Objects=== */
 	public:
-
 		static enum TYPE
 		{
 			DEFAULT = 0
 		};
-
-		Mouse(Mouse::TYPE type = Mouse::TYPE::DEFAULT);
-
+	protected:
 	private:
 		sf::Sprite object;
+
+		/* ===Methods=== */
+	public:
+		Mouse(Mouse::TYPE type = Mouse::TYPE::DEFAULT);
+	protected:
+	private:
+		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	};
 }

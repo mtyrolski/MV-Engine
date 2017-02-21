@@ -14,8 +14,13 @@ namespace mv
 {
 	class Scene
 	{
+		/* ===Objects=== */
 	public:
-		//Constructor which creates a window
+	protected:
+	private:
+		sf::RenderWindow *window;
+		/* ===Methods=== */
+	public://Constructor which creates a window
 		Scene(std::string title = constants::defaults::UNNAMED, sf::Vector2f dimensions = constants::defaults::WINDOW_DIMENSIONS);
 
 		~Scene();
@@ -31,7 +36,7 @@ namespace mv
 
 		//Draws given collection of T objects
 		//returns false if T doesn't inhert from sf::Drawable
-		template < typename T= typename std::enable_if< std::is_base_of<sf::Drawable,T>::value,T>::type>
+		template < typename T = typename std::enable_if< std::is_base_of<sf::Drawable, T>::value, T>::type>
 		bool drawCollection(std::vector<T> *collection);
 
 
@@ -40,10 +45,8 @@ namespace mv
 		void close();
 
 		void viewUpdate(sf::View *view);
-
+	protected:
 	private:
-
-		sf::RenderWindow *window;
 	};
 
 

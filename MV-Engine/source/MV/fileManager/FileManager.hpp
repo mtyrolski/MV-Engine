@@ -6,16 +6,20 @@ namespace mv
 {
 	class FileManager
 	{
+		/* ===Objects=== */
 	public:
-
 		static enum MODE
 		{
 			OVERWRITE = 0,
 			APPEND = 1
 		};
+	protected:
+	private:
 
-
-		static void output(char* message, std::string path, FileManager::MODE mode);		
-	
+		/* ===Methods=== */
+	public:
+		static void output(char* message, std::string path, FileManager::MODE mode);
+	protected:
+	private:
 	};
 }

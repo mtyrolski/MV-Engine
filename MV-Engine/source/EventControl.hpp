@@ -21,14 +21,16 @@ namespace mv
 {
 	class EventControl
 	{
-
+		/* ===Objects=== */
 	public:
-
+	protected:
+	private:
+		Scene* m_scene;
+		/* ===Methods=== */
+	public:
 		EventControl(Scene *scene);
 		void checkEvent(sf::Event &event);
-
+	protected:
 	private:
-
-		Scene* m_scene;
 	};
 }

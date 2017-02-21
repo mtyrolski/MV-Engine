@@ -12,6 +12,12 @@ namespace mv
 {
 	class StateSystem
 	{
+		/* ===Objects=== */
+	public:
+	protected:
+		static std::map<std::string, std::pair<int8_t, sf::Color>> states;
+	private:
+		/* ===Methods=== */
 	public:
 		//Emplaces new state into state map
 		//returns false if state with given name/number exist or number<0 or color is not correct
@@ -54,8 +60,7 @@ namespace mv
 
 		//Returns ammount of states
 		static int8_t getAmmountStates();
-
+	protected:
 	private:
-		static std::map<std::string, std::pair<int8_t,sf::Color>> states;
 	};
 }

@@ -7,13 +7,15 @@ namespace mv
 {
 	class Initializator
 	{
+		/* ===Objects=== */
 	public:
-
-		Initializator();
-
-		~Initializator();
-
+	protected:
+	private:
+		/* ===Methods=== */
+	public:
 		//Inits the program
 		void init();
+	protected:
+	private:
 	};
 }
