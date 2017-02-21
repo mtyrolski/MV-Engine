@@ -9,7 +9,7 @@ namespace mv
 	{
 		namespace loader
 		{
-			constexpr auto DATA_PATH = "source/MV/loader/options.txt";
+			constexpr auto DATA_PATH = "data/options/options.txt";
 		}
 
 		namespace cell
@@ -27,12 +27,12 @@ namespace mv
 
 		namespace fileManager
 		{
-			constexpr auto PATH_LOG = "source/data/log/log.txt";
+			constexpr auto PATH_LOG = "data/log/log.txt";
 		}
 		
 		namespace stateSystem
 		{
-			constexpr auto STATES_PATH = "source/data/states/states.txt";
+			constexpr auto STATES_PATH = "data/states/states.txt";
 		}
 		
 		namespace error
