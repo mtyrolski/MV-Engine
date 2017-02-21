@@ -29,6 +29,9 @@ namespace mv
 		//Construct whole world 
 		bool constructWholeWorld(std::string defaultState);
 
+		//Uptades cells (to next state)
+		void updateCells();
+
 	private:
 
 		//Vector of cells which are the surface

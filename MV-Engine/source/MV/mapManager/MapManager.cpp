@@ -53,5 +53,12 @@ namespace mv
 
 	}
 
+	void MapManager::updateCells()
+	{
+		for (auto&var : map)
+			var.update();
+		
+	}
+
 }
 

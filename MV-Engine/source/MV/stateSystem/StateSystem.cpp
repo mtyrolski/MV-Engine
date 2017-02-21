@@ -31,7 +31,7 @@ namespace mv
 			return false;
 		}
 
-		int8_t number;
+		int number;
 		int colorComponents[3];
 		std::string name;
 

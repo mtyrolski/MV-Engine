@@ -62,4 +62,9 @@ namespace mv
 
 		return false;
 	}
+
+	void Cell::update()
+	{
+		state = nextState;
+	}
 }

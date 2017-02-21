@@ -36,7 +36,8 @@ namespace mv
 		//returns true if state has been changed
 		bool setState(std::string stateName);
 
-		
+		//Updates cell state to next state
+		void update();
 
 	private:
 

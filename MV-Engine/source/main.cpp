@@ -1,13 +1,16 @@
+#pragma once
+
+#include <vector>
+
+#include <SFML/Window/Event.hpp>
+
+#include "MV/resourceCache/Cache.hpp"
+#include "MV/mapManager/MapManager.hpp"
+#include "MV/cell/Cell.hpp"
 #include "MV/initializator/Initializator.hpp"
 #include "MV/scene/Scene.hpp"
 #include "MV/loader/Loader.hpp"
 #include "EventControl.hpp"
-#include <SFML/Window/Event.hpp>
-#include "MV/resourceCache/Cache.hpp"
-#include "MV/mapManager/MapManager.hpp"
-#include "MV/cell/Cell.hpp"
-
-#include <vector>
 
 int main()
 {
@@ -34,6 +37,7 @@ int main()
 		sf::Event event;
 
 		scene->clear();
+		mapManager->updateCells();
 		scene->drawCollection<mv::Cell>(mapManager->getCellStorage());
 		scene->display();
 
