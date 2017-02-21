@@ -42,11 +42,6 @@ namespace mv
 
 	bool MapManager::constructWholeWorld(std::string defaultState)
 	{
-		if (MapManager::cellDimensions.x == 0 || MapManager::cellDimensions.y == 0)
-		{
-			Logger::Log(constants::error::mapManager::NOT_INITED, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
-			return false;
-		}
 
 		if (!StateSystem::isStateExist(defaultState))
 		{

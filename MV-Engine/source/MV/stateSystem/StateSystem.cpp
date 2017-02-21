@@ -87,7 +87,6 @@ namespace mv
 			return sf::Color::White;
 
 		return itr->second.second;
-		return sf::Color();
 	}
 
 	std::string StateSystem::getNameOfState(int8_t number)
