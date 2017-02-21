@@ -1,7 +1,7 @@
 #pragma once
 
-#include "engine/stateSystem/StateSystem.hpp"
-#include "engine/config/Config.hpp"
+#include "MV/stateSystem/StateSystem.hpp"
+#include "MV/config/Config.hpp"
 
 namespace mv
 {

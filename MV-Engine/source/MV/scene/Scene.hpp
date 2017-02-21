@@ -4,9 +4,9 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
 
-#include "engine/config/Config.hpp"
-#include "engine/logger/logger.hpp"
-#include "engine/cell/Cell.hpp"
+#include "MV/config/Config.hpp"
+#include "MV/logger/logger.hpp"
+#include "MV/cell/Cell.hpp"
 
 
 namespace mv

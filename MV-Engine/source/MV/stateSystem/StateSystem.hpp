@@ -1,7 +1,7 @@
 #pragma once
 
-#include "engine/config/Config.hpp"
-#include "engine/logger/Logger.hpp"
+#include "MV/config/Config.hpp"
+#include "MV/logger/Logger.hpp"
 #include <SFML/Graphics/Color.hpp>
 
 #include <fstream>

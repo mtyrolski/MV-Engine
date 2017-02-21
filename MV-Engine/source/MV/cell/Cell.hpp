@@ -6,8 +6,8 @@
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
-#include "engine/config/Config.hpp"
-#include "engine/stateSystem/StateSystem.hpp"
+#include "MV/config/Config.hpp"
+#include "MV/stateSystem/StateSystem.hpp"
 
 namespace mv
 {

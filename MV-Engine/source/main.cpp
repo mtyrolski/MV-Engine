@@ -1,11 +1,11 @@
-#include "engine/initializator/Initializator.hpp"
-#include "engine/scene/Scene.hpp"
-#include "engine/loader/Loader.hpp"
+#include "MV/initializator/Initializator.hpp"
+#include "MV/scene/Scene.hpp"
+#include "MV/loader/Loader.hpp"
 #include "EventControl.hpp"
 #include <SFML/Window/Event.hpp>
-#include "engine/resourceCache/Cache.hpp"
-#include "engine/mapManager/MapManager.hpp"
-#include "engine/cell/Cell.hpp"
+#include "MV/resourceCache/Cache.hpp"
+#include "MV/mapManager/MapManager.hpp"
+#include "MV/cell/Cell.hpp"
 
 #include <vector>
 

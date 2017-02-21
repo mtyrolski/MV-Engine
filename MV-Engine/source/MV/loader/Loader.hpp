@@ -3,7 +3,7 @@
 #include <fstream>
 #include <SFML/System/Vector2.hpp>
 #include <string>
-#include "engine/config/Config.hpp"
+#include "MV/config/Config.hpp"
 
 namespace mv
 {
