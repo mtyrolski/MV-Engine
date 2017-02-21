@@ -1,11 +1,13 @@
 #pragma once
 
-#include "MV/config/Config.hpp"
-#include "MV/logger/Logger.hpp"
-#include <SFML/Graphics/Color.hpp>
-
 #include <fstream>
 #include <map>
+
+#include <SFML/Graphics/Color.hpp>
+
+#include "MV/config/Config.hpp"
+#include "MV/logger/Logger.hpp"
+
 namespace mv
 {
 	class StateSystem

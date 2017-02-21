@@ -1,7 +1,8 @@
 #pragma once
 
-#include "MV/cell/Cell.hpp"
 #include <vector>
+
+#include "MV/cell/Cell.hpp"
 
 namespace mv
 {

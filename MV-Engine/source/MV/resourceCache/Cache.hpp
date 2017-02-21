@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <map>
+
 #include <SFML/Graphics/Texture.hpp>
 
 namespace mv

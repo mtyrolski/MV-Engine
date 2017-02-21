@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Window/Event.hpp>
+
 #include "MV/scene/Scene.hpp"
 
 /*

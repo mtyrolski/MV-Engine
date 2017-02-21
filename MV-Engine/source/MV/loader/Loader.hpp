@@ -1,8 +1,9 @@
 #pragma once
 
 #include <fstream>
-#include <SFML/System/Vector2.hpp>
 #include <string>
+
+#include <SFML/System/Vector2.hpp>
 #include "MV/config/Config.hpp"
 
 namespace mv
