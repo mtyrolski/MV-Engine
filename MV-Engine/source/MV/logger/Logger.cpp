@@ -48,7 +48,7 @@ namespace mv
 
 	void Logger::fileMessage(const std::string& message, std::string &prefix, std::time_t& time)
 	{
-		std::ofstream file(constants::fileManager::PATH_LOG);
+		std::ofstream file("data/log/log.txt");
 
 		file << std::ctime(&time);
 		file << prefix << ' ';

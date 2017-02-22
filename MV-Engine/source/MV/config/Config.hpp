@@ -7,11 +7,6 @@ namespace mv
 {
 	namespace constants
 	{
-		namespace loader
-		{
-			constexpr auto DATA_PATH = "data/options/options.txt";
-		}
-
 		namespace cell
 		{
 			const sf::Color FILL_COLOR(120, 133, 139); //Squirrel grey
@@ -23,16 +18,6 @@ namespace mv
 			constexpr auto PREFIX_SUGGESTION = "[SUGGESTION]";
 			constexpr auto PREFIX_WARNING = "[WARNING]";
 			constexpr auto PREFIX_ERROR = "[ERROR]";
-		}
-
-		namespace fileManager
-		{
-			constexpr auto PATH_LOG = "data/log/log.txt";
-		}
-		
-		namespace stateSystem
-		{
-			constexpr auto STATES_PATH = "data/states/states.txt";
 		}
 		
 		namespace error

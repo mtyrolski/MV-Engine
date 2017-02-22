@@ -4,7 +4,7 @@ namespace mv
 {
 	void Loader::loadData()
 	{
-		std::ifstream file(constants::loader::DATA_PATH);
+		std::ifstream file("data/options/options.txt");
 
 		if (file.good())
 		{

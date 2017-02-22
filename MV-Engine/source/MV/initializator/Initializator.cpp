@@ -5,7 +5,7 @@ namespace mv
 {
 	void Initializator::init()
 	{
-		StateSystem::readStatesFromFile(constants::stateSystem::STATES_PATH);
+		StateSystem::readStatesFromFile("data/states/states.txt");
 	}
 }
 
