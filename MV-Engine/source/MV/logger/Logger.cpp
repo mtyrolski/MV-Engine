@@ -4,14 +4,14 @@
 
 namespace mv
 {
-	void Logger::Log(std::string message, Logger::STREAM stream, Logger::TYPE type)
+	void Logger::Log(const std::string& message, const Logger::STREAM& stream, const Logger::TYPE& type)
 	{
 		std::string prefix;
 		setPrefix(type,prefix);
 		sendMessage(message, stream,prefix);
 	}
 
-	void Logger::sendMessage(std::string message, Logger::STREAM stream, std::string &prefix)
+	void Logger::sendMessage(const std::string& message, Logger::STREAM stream, std::string &prefix)
 	{
 		std::chrono::time_point<std::chrono::system_clock> date = std::chrono::system_clock::now();
 		std::time_t time = std::chrono::system_clock::to_time_t(date);
@@ -39,14 +39,14 @@ namespace mv
 		}
 	}
 
-	void Logger::consoleMessage(std::string message, std::string &prefix, std::time_t& time)
+	void Logger::consoleMessage(const std::string& message, std::string &prefix, std::time_t& time)
 	{
 		std::cout << std::ctime(&time);
 		std::cout << prefix << ' ';
 		std::cout << message << "\n\n";
 	}
 
-	void Logger::fileMessage(std::string message, std::string &prefix, std::time_t& time)
+	void Logger::fileMessage(const std::string& message, std::string &prefix, std::time_t& time)
 	{
 		std::ofstream file(constants::fileManager::PATH_LOG);
 

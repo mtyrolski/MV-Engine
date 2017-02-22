@@ -21,7 +21,7 @@ namespace mv
 
 		/* ===Methods=== */
 	public:
-		Mouse(Mouse::TYPE type = Mouse::TYPE::DEFAULT);
+		Mouse(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT);
 	protected:
 	private:
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

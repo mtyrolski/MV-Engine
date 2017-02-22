@@ -12,7 +12,7 @@ namespace mv
 		window->clear();
 	}
 
-	Scene::Scene(std::string title, sf::Vector2f dimensions)
+	Scene::Scene(const std::string& title, const sf::Vector2f& dimensions)
 	{
 		window = new sf::RenderWindow(sf::VideoMode(dimensions.x, dimensions.y), title);
 	}

@@ -26,7 +26,7 @@ namespace mv
 		}
 	}
 
-	void Cell::setBasicParameters(std::string & name, sf::Vector2f & cellDimensions, sf::Vector2i & uPos)
+	void Cell::setBasicParameters(const std::string& name, sf::Vector2f & cellDimensions, sf::Vector2i & uPos)
 	{
 		if (!StateSystem::isStateExist(name))
 		{
@@ -52,7 +52,7 @@ namespace mv
 
 
 
-	Cell::Cell(sf::Vector2i& uPos, sf::Vector2f& cellDimensions, std::string& stateName)
+	Cell::Cell(sf::Vector2i& uPos, sf::Vector2f& cellDimensions, const std::string& stateName)
 		:unitPosition(uPos)
 	{
 		setVisualSettings(cellDimensions, uPos);

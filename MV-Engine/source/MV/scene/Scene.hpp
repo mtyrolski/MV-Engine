@@ -21,7 +21,7 @@ namespace mv
 		sf::RenderWindow *window;
 		/* ===Methods=== */
 	public://Constructor which creates a window
-		Scene(std::string title = constants::defaults::UNNAMED, sf::Vector2f dimensions = constants::defaults::WINDOW_DIMENSIONS);
+		Scene(const std::string& title = constants::defaults::UNNAMED, const sf::Vector2f& dimensions = constants::defaults::WINDOW_DIMENSIONS);
 
 		~Scene();
 

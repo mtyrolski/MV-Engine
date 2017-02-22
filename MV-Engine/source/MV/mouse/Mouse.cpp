@@ -7,7 +7,7 @@ namespace mv
 		target.draw(object, states);
 	}
 
-	Mouse::Mouse(Mouse::TYPE type)
+	Mouse::Mouse(const Mouse::TYPE& type)
 	{
 		// to do
 	}

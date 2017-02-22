@@ -22,16 +22,16 @@ namespace mv
 		//Emplaces new state into state map
 		//returns false if state with given name/number exist or number<0 or color is not correct
 		//returns true if state has been added
-		static bool emplaceState(std::string name, int8_t number, sf::Color color);
+		static bool emplaceState(const std::string& name, int8_t number, sf::Color& color);
 
 		//Reads all states 
 		//returns false if path is not correct
 		//returns true if states have been readed correctly
-		static bool readStatesFromFile(std::string path);
+		static bool readStatesFromFile(const std::string& path);
 
 		//Returns false if state with given name doesn't exist
 		//returns true if state with given name exist
-		static bool isStateExist(std::string name);
+		static bool isStateExist(const std::string& name);
 
 		//Returns false if state with given number doesn't exist
 		//returns true if state with given number exist
@@ -39,11 +39,11 @@ namespace mv
 
 		//Returns number of state with given name
 		//returns -1 value if state doesn't exist
-		static int8_t getNumberOfState(std::string name);
+		static int8_t getNumberOfState(const std::string& name);
 
 		//Returns color of state
 		//returns white if state with given name does not exist
-		static sf::Color getColorOfState(std::string name);
+		static sf::Color getColorOfState(std::string& name);
 
 		//Returns color of state
 		//returns white if state with given number does not exist
@@ -56,7 +56,7 @@ namespace mv
 		//Erase state with given name
 		//returns false if state doesn't exist
 		//returns true if state has been removed
-		static bool eraseState(std::string name);
+		static bool eraseState(std::string& name);
 
 		//Returns ammount of states
 		static int8_t getAmmountStates();

@@ -37,12 +37,12 @@ namespace mv
 		std::vector<Cell> *getCellStorage();
 
 		//Construct whole world 
-		bool constructWholeWorld(std::string defaultState);
+		bool constructWholeWorld(const std::string&defaultState);
 
 		//Uptades cells (to next state)
 		void updateCells();
 	protected:
 	private:
-		void createWorld(std::string defaultStateName);
+		void createWorld(const std::string& defaultStateName);
 	};
 }

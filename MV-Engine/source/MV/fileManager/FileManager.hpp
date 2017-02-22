@@ -18,7 +18,7 @@ namespace mv
 
 		/* ===Methods=== */
 	public:
-		static void output(char* message, std::string path, FileManager::MODE mode);
+		static void output(char* message, std::string& path, FileManager::MODE mode);
 	protected:
 	private:
 	};

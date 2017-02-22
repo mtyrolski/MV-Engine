@@ -2,7 +2,7 @@
 
 namespace mv
 {
-	void MapManager::createWorld(std::string defaultStateName)
+	void MapManager::createWorld(const std::string& defaultStateName)
 	{
 		for (int j = 0; j < unitWorldSize.y; j++)
 		{
@@ -40,7 +40,7 @@ namespace mv
 		return &map;
 	}
 
-	bool MapManager::constructWholeWorld(std::string defaultState)
+	bool MapManager::constructWholeWorld(const std::string& defaultState)
 	{
 
 		if (!StateSystem::isStateExist(defaultState))

@@ -2,7 +2,7 @@
 
 namespace mv
 {
-	void FileManager::output(char* message, std::string path, FileManager::MODE mode)
+	void FileManager::output(char* message, std::string& path, FileManager::MODE mode)
 	{
 		std::ofstream out;
 

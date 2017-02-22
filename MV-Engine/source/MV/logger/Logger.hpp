@@ -32,15 +32,15 @@ namespace mv
 	private:
 		/* ===Methods=== */
 	public:
-		static void Log(std::string = "no data", Logger::STREAM = Logger::STREAM::CONSOLE, Logger::TYPE = Logger::TYPE::ERROR);
+		static void Log(const std::string&, const Logger::STREAM& = Logger::STREAM::CONSOLE, const Logger::TYPE& = Logger::TYPE::ERROR);
 	protected:
 	private:
 
-		static void sendMessage(std::string message, Logger::STREAM stream, std::string &prefix);
+		static void sendMessage(const std::string& message, Logger::STREAM stream, std::string &prefix);
 
-		static void consoleMessage(std::string message, std::string &prefix, std::time_t& time);
+		static void consoleMessage(const std::string&message, std::string &prefix, std::time_t& time);
 
-		static void fileMessage(std::string message, std::string &prefix, std::time_t& time);
+		static void fileMessage(const std::string&, std::string &prefix, std::time_t& time);
 
 		static void setPrefix(Logger::TYPE type, std::string &prefix);
 	};

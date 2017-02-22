@@ -32,7 +32,7 @@ namespace mv
 		/* ===Methods=== */
 	public:
 
-		Cell(sf::Vector2i& uPos, sf::Vector2f& cellDimensions, std::string& stateName);
+		Cell(sf::Vector2i& uPos, sf::Vector2f& cellDimensions, const std::string& stateName);
 		Cell(sf::Vector2i& uPos, sf::Vector2f& cellDimensions, int stateNumber);
 
 		//Change state for given shift
@@ -59,7 +59,7 @@ namespace mv
 
 
 		void setBasicParameters(int stateNumber, sf::Vector2f& cellDimensions, sf::Vector2i& uPos);
-		void setBasicParameters(std::string& name, sf::Vector2f& cellDimensions, sf::Vector2i& uPos);
+		void setBasicParameters(const std::string& name, sf::Vector2f& cellDimensions, sf::Vector2i& uPos);
 
 		void setVisualSettings(sf::Vector2f& cellDimensions, sf::Vector2i& uPos);
 	};
