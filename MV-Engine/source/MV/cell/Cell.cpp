@@ -12,8 +12,35 @@ namespace mv
 		shape.setFillColor(color);
 	}
 
-	Cell::Cell(sf::Vector2i uPos, sf::Vector2f cellDimensions, std::string stateName)
-		:unitPosition(uPos)
+	void Cell::setBasicParameters(int stateNumber, sf::Vector2f & cellDimensions, sf::Vector2i & uPos)
+	{
+		if (!StateSystem::isStateExist(stateNumber))
+		{
+			Logger::Log(constants::error::stateSystem::STATE_DOES_NOT_EXIST, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
+			state = StateSystem::getNumberOfState(constants::defaults::EMPTY);
+		}
+		else
+		{
+			state = stateNumber;
+			setColor(StateSystem::getColorOfState(state));
+		}
+	}
+
+	void Cell::setBasicParameters(std::string & name, sf::Vector2f & cellDimensions, sf::Vector2i & uPos)
+	{
+		if (!StateSystem::isStateExist(name))
+		{
+			Logger::Log(constants::error::stateSystem::STATE_DOES_NOT_EXIST, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
+			state = StateSystem::getNumberOfState(constants::defaults::EMPTY);
+		}
+		else
+		{
+			state = StateSystem::getNumberOfState(name);
+			setColor(StateSystem::getColorOfState(state));
+		}
+	}
+
+	void Cell::setVisualSettings(sf::Vector2f & cellDimensions, sf::Vector2i & uPos)
 	{
 		shape.setSize(cellDimensions);
 		shape.setOutlineThickness(cellDimensions.x / 10.0f); //10%
@@ -21,17 +48,22 @@ namespace mv
 		shape.setOutlineColor(constants::cell::FILL_COLOR);
 
 		shape.setPosition(uPos.x*cellDimensions.x, uPos.y*cellDimensions.y);
+	}
 
-		if (!StateSystem::isStateExist(stateName))
-		{
-			Logger::Log(constants::error::stateSystem::STATE_DOES_NOT_EXIST, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
-			state = StateSystem::getNumberOfState(constants::defaults::EMPTY);
-		}
-		else
-		{
-			state = StateSystem::getNumberOfState(stateName);
-			setColor(StateSystem::getColorOfState(state));
-		}
+
+
+	Cell::Cell(sf::Vector2i& uPos, sf::Vector2f& cellDimensions, std::string& stateName)
+		:unitPosition(uPos)
+	{
+		setVisualSettings(cellDimensions, uPos);
+		setBasicParameters(stateName,cellDimensions,uPos);
+	}
+
+	Cell::Cell(sf::Vector2i & uPos, sf::Vector2f & cellDimensions, int stateNumber)
+		:unitPosition(uPos)
+	{
+		setVisualSettings(cellDimensions, uPos);
+		setBasicParameters(stateNumber,cellDimensions,uPos);
 	}
 
 	void Cell::changeState(int shift)

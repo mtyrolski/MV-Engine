@@ -66,6 +66,7 @@ namespace mv
 		namespace defaults
 		{
 			constexpr auto EMPTY = "EMPTY";
+			constexpr auto EMPTY_STATE_NUMBER = 0;
 			constexpr auto UNNAMED = "unnamed";
 			const sf::Vector2f WINDOW_DIMENSIONS = { 600,600 };
 		}

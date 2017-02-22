@@ -32,7 +32,8 @@ namespace mv
 		/* ===Methods=== */
 	public:
 
-		Cell(sf::Vector2i uPos = { 0,0 }, sf::Vector2f cellDimensions = { 0,0 }, std::string stateName = constants::defaults::EMPTY);
+		Cell(sf::Vector2i& uPos, sf::Vector2f& cellDimensions, std::string& stateName);
+		Cell(sf::Vector2i& uPos, sf::Vector2f& cellDimensions, int stateNumber);
 
 		//Change state for given shift
 		void changeState(int shift);
@@ -55,5 +56,11 @@ namespace mv
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 		void setColor(sf::Color color);
+
+
+		void setBasicParameters(int stateNumber, sf::Vector2f& cellDimensions, sf::Vector2i& uPos);
+		void setBasicParameters(std::string& name, sf::Vector2f& cellDimensions, sf::Vector2i& uPos);
+
+		void setVisualSettings(sf::Vector2f& cellDimensions, sf::Vector2i& uPos);
 	};
 }
