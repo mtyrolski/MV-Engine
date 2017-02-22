@@ -71,5 +71,16 @@ namespace mv
 		for (auto&var : map)
 			var.setState(initialState);
 	}
+
+	bool MapManager::isInMap(sf::Vector2i & unitPosition)
+	{
+		return isInMap(unitPosition.x, unitPosition.y);
+	}
+
+	bool MapManager::isInMap(unsigned int i, unsigned int j)
+	{
+		return i >= 0 && i < unitWorldSize.x &&
+			j >= 0 && j < unitWorldSize.y;
+	}
 }
 

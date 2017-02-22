@@ -49,6 +49,12 @@ namespace mv
 
 		//Sets default state in each cell
 		void resetAllCells();
+
+		//Checks that object with given position is in map
+		bool isInMap(sf::Vector2i& unitPosition);
+
+		//Checks that object with given position is in map
+		bool isInMap(unsigned int i, unsigned int j);
 	
 	protected:
 	private:
