@@ -44,9 +44,7 @@ namespace mv
 	{
 		shape.setSize(cellDimensions);
 		shape.setOutlineThickness(cellDimensions.x / 10.0f); //10%
-
 		shape.setOutlineColor(constants::cell::FILL_COLOR);
-
 		shape.setPosition(uPos.x*cellDimensions.x, uPos.y*cellDimensions.y);
 	}
 
@@ -110,5 +108,10 @@ namespace mv
 	void Cell::update()
 	{
 		state = nextState;
+	}
+
+	void Cell::setOutlineColor(const sf::Color & color)
+	{
+		shape.setOutlineColor(color);
 	}
 }

@@ -50,6 +50,9 @@ namespace mv
 		//Sets default state in each cell
 		void resetAllCells();
 
+		//Sets outline color in each cell
+		void setOutlineColor(const sf::Color& color);
+
 		//Checks that object with given position is in map
 		bool isInMap(sf::Vector2i& unitPosition);
 

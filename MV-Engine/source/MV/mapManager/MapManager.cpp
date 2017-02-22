@@ -72,6 +72,12 @@ namespace mv
 			var.setState(initialState);
 	}
 
+	void MapManager::setOutlineColor(const sf::Color & color)
+	{
+		for (auto&var : map)
+			var.setOutlineColor(color);
+	}
+
 	bool MapManager::isInMap(sf::Vector2i & unitPosition)
 	{
 		return isInMap(unitPosition.x, unitPosition.y);

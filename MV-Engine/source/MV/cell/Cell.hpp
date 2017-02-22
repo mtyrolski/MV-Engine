@@ -56,6 +56,10 @@ namespace mv
 
 		//Updates cell state to next state
 		void update();
+
+		//Sets outline color of cell
+		void setOutlineColor(const sf::Color& color);
+
 	protected:
 	private:
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
