@@ -2,13 +2,13 @@
 
 namespace mv
 {
-	void MapManager::createWorld(const std::string& defaultStateName)
+	void MapManager::createWorld(uint8_t defaultStateNumber)
 	{
 		for (int j = 0; j < unitWorldSize.y; j++)
 		{
 			for (int i = 0; i < unitWorldSize.x; i++)
 			{
-				map.emplace_back(sf::Vector2i{i,j}, cellDimensions, defaultStateName);
+				map.emplace_back(sf::Vector2i{i,j}, cellDimensions, defaultStateNumber);
 			}
 		}
 	}
@@ -42,14 +42,15 @@ namespace mv
 
 	bool MapManager::constructWholeWorld(const std::string& defaultState)
 	{
+		initialState = StateSystem::getNumberOfState(defaultState);
 
-		if (!StateSystem::isStateExist(defaultState))
+		if (!StateSystem::isStateExist(initialState))
 		{
 			Logger::Log(constants::error::stateSystem::NUMBER_HAS_NOT_FOUND, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
 			return false;
 		}
 
-		MapManager::createWorld(defaultState);
+		MapManager::createWorld(initialState);
 
 	}
 
@@ -60,5 +61,15 @@ namespace mv
 		
 	}
 
+	void MapManager::setDefaultState(Cell& cell)
+	{
+		cell.setState(initialState);
+	}
+
+	void MapManager::resetAllCells()
+	{
+		for (auto&var : map)
+			var.setState(initialState);
+	}
 }
 

@@ -95,6 +95,18 @@ namespace mv
 		return false;
 	}
 
+	bool Cell::setState(uint8_t stateNumber)
+	{
+		if (StateSystem::isStateExist(stateNumber))
+		{
+			state = stateNumber;
+			return true;
+		}
+		else Logger::Log(constants::error::stateSystem::NUMBER_HAS_NOT_FOUND,Logger::STREAM::BOTH,Logger::TYPE::ERROR);
+
+		return false;
+	}
+
 	void Cell::update()
 	{
 		state = nextState;

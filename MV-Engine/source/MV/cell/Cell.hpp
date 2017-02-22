@@ -49,6 +49,11 @@ namespace mv
 		//returns true if state has been changed
 		bool setState(std::string stateName);
 
+		//Change cell's state to given number
+		//returns false if state hasn't been changed
+		//returns true if state has been changed
+		bool setState(uint8_t stateNumber);
+
 		//Updates cell state to next state
 		void update();
 	protected:

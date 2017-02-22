@@ -21,6 +21,8 @@ namespace mv
 		//Dimensions of cell(in px)
 		sf::Vector2f cellDimensions{ 0,0 };
 
+		uint8_t initialState;
+
 		/* ===Methods=== */
 	public:
 		//Constructor (on the begining of game process)
@@ -36,13 +38,20 @@ namespace mv
 		//Returns pointer to cell's vector
 		std::vector<Cell> *getCellStorage();
 
-		//Construct whole world 
+		//Construct whole world with default state
 		bool constructWholeWorld(const std::string&defaultState);
 
 		//Uptades cells (to next state)
 		void updateCells();
+
+		//Sets default state
+		void setDefaultState(Cell&);
+
+		//Sets default state in each cell
+		void resetAllCells();
+	
 	protected:
 	private:
-		void createWorld(const std::string& defaultStateName);
+		void createWorld(uint8_t defaultStateNumber);
 	};
 }
