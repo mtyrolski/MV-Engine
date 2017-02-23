@@ -3,9 +3,9 @@
 #include <chrono>
 
 #include <SFML/Graphics/Font.hpp>
-#include <SFML/Graphics/Text.hpp>
 
 #include "MV/logger/Logger.hpp"
+#include "MV/statementSystem/Statement.hpp"
 
 namespace mv
 {
@@ -18,26 +18,14 @@ namespace mv
 		static StatementSystem *instance;
 
 		sf::Font font;
-
-		struct statement
-		{
-		public:
-			sf::Text text;
-			std::chrono::time_point<std::chrono::system_clock> createdTime;
-
-			statement(const std::string& _text)
-			{
-				text.setString(_text);
-				createdTime = std::chrono::system_clock::now();
-			}
-		};
-
-		std::vector<statement> statements;
+		std::vector<Statement> statements;
 
 		/* ===Methods=== */
 	public:
 		static void createInstance();
 		static StatementSystem& getInstance();
+
+		std::vector<Statement>& getStatements;
 	protected:
 	private:
 		StatementSystem();

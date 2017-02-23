@@ -13,5 +13,4 @@ namespace mv
 			Logger::Log(constants::error::singleton::SINGLETON_NOT_INITED, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
 		return *instance;
 	}
-
 }
