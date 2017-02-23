@@ -14,34 +14,34 @@
 
 int main()
 {
-	mv::Scene* scene;
 	mv::MapManager* mapManager;
 
 	{
-		mv::Initializator initializator;
-		initializator.init();
+		mv::Initializator::createInstance();
+		mv::Initializator::getInstance().init();
 
-		mv::Loader loader;
-		loader.loadData();
+		mv::Loader::createInstance();
+		mv::Loader::getInstance().loadData();
 
-		scene = new mv::Scene(loader.title, sf::Vector2f(loader.ammount.x*loader.cellDimensions.x, loader.ammount.y*loader.cellDimensions.y));
-		mapManager = new mv::MapManager(loader.ammount, loader.cellDimensions);
+		mv::Scene::createInstance(mv::Loader::getInstance().title, sf::Vector2f(mv::Loader::getInstance().ammount.x*mv::Loader::getInstance().cellDimensions.x, mv::Loader::getInstance().ammount.y*mv::Loader::getInstance().cellDimensions.y));
+		
+		mv::MapManager::createInstance(mv::Loader::getInstance().ammount, mv::Loader::getInstance().cellDimensions);
 	}
 
-	mv::EventControl eventControl(scene);
-	mapManager->constructWholeWorld(mv::constants::defaults::EMPTY);
+	mv::EventControl::createInstance(&mv::Scene::getInstance());
 
+	mv::MapManager::getInstance().constructWholeWorld(mv::constants::defaults::EMPTY);
 	//main game loop
-	while (scene->isOpen())
+	while (mv::Scene::getInstance().isOpen())
 	{
 		sf::Event event;
 
-		scene->clear();
-		mapManager->updateCells();
-		scene->drawCollection<mv::Cell>(mapManager->getCellStorage());
-		scene->display();
+		mv::Scene::getInstance().clear();
+		mv::MapManager::getInstance().updateCells();
+		mv::Scene::getInstance().drawCollection<mv::Cell>(mv::MapManager::getInstance().getCellStorage());
+		mv::Scene::getInstance().display();
 
-		eventControl.checkEvent(event);
+		mv::EventControl::getInstance().checkEvent(event);
 	}
 
 
