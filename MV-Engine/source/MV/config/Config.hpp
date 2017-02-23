@@ -46,6 +46,11 @@ namespace mv
 			{
 				constexpr auto PATH_IS_NOT_CORRET = "Given path is not correct";
 			}
+
+			namespace singleton
+			{
+				constexpr auto SINGLETON_NOT_INITED = "Singleon must be inited!";
+			}
 		}
 
 		namespace defaults

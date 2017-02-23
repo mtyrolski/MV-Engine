@@ -19,9 +19,13 @@ namespace mv
 	protected:
 	private:
 		sf::RenderWindow *window;
+
+		static Scene* instance;
 		/* ===Methods=== */
-	public://Constructor which creates a window
-		Scene(const std::string& title = constants::defaults::UNNAMED, const sf::Vector2f& dimensions = constants::defaults::WINDOW_DIMENSIONS);
+	public:
+		static Scene& getInstance();
+
+		static void createInstance(const std::string& title = constants::defaults::UNNAMED, const sf::Vector2f& dimensions = constants::defaults::WINDOW_DIMENSIONS);
 
 		~Scene();
 
@@ -47,6 +51,10 @@ namespace mv
 		void viewUpdate(sf::View *view);
 	protected:
 	private:
+		Scene(const std::string& title = constants::defaults::UNNAMED, const sf::Vector2f& dimensions = constants::defaults::WINDOW_DIMENSIONS);
+		Scene() = delete;  // Not Implemented
+		Scene(Scene const& copy) = delete;            // Not Implemented
+		Scene& operator=(Scene const& copy) = delete; // Not Implemented
 	};
 
 

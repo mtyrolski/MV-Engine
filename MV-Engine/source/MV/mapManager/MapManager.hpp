@@ -23,11 +23,13 @@ namespace mv
 
 		uint8_t initialState;
 
+		static MapManager* instance;
+
 		/* ===Methods=== */
 	public:
-		//Constructor (on the begining of game process)
-		//returns false if unitWorldSize<=0 || cellDimensions<=0
-		MapManager(sf::Vector2i uWorldSize, const sf::Vector2f& celldimensions);
+		static MapManager& getInstance();
+
+		static void createInstance(sf::Vector2i uWorldSize, const sf::Vector2f& celldimensions);
 
 		//Returns world size in units
 		sf::Vector2i getUnitWorldSize();
@@ -62,5 +64,10 @@ namespace mv
 	protected:
 	private:
 		void createWorld(uint8_t defaultStateNumber);
+
+		MapManager(sf::Vector2i uWorldSize, const sf::Vector2f& celldimensions);
+		MapManager() = delete;  // Not Implemented
+		MapManager(MapManager const& copy) = delete;            // Not Implemented
+		MapManager& operator=(MapManager const& copy) = delete; // Not Implemented
 	};
 }

@@ -2,6 +2,8 @@
 
 namespace mv
 {
+	MapManager* MapManager::instance;
+
 	void MapManager::createWorld(uint8_t defaultStateNumber)
 	{
 		for (int j = 0; j < unitWorldSize.y; j++)
@@ -24,6 +26,20 @@ namespace mv
 		}
 		MapManager::unitWorldSize = uWorldSize;
 		MapManager::cellDimensions = cellDim;
+	}
+
+
+	MapManager & MapManager::getInstance()
+	{
+		if (instance == 0)
+			Logger::Log(constants::error::singleton::SINGLETON_NOT_INITED, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
+		return *instance;
+	}
+
+	void MapManager::createInstance(sf::Vector2i uWorldSize, const sf::Vector2f & cellDim)
+	{
+		if (instance == 0)
+			instance = new MapManager(uWorldSize,cellDim);
 	}
 
 	sf::Vector2i MapManager::getUnitWorldSize()

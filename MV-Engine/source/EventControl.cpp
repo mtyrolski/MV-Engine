@@ -2,6 +2,8 @@
 
 namespace mv
 {
+	EventControl* EventControl::instance;
+
 	EventControl::EventControl(Scene * scene)
 		:m_scene(scene)
 	{	
@@ -22,6 +24,19 @@ namespace mv
 				/*there you can add new case*/
 			}
 		}
+	}
+
+	EventControl & EventControl::getInstance()
+	{
+		if (instance == 0)
+			Logger::Log(constants::error::singleton::SINGLETON_NOT_INITED, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
+		return *instance;
+	}
+
+	void EventControl::createInstance(Scene *scene)
+	{
+		if (instance == 0)
+			instance = new EventControl(scene);
 	}
 }
 

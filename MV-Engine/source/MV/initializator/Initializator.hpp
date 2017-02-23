@@ -11,11 +11,18 @@ namespace mv
 	public:
 	protected:
 	private:
+		static Initializator *instance;
 		/* ===Methods=== */
 	public:
 		//Inits the program
 		void init();
+
+		static Initializator& getInstance();
+		static void createInstance();
 	protected:
 	private:
+		Initializator();
+		Initializator(Initializator const& copy) = delete;            // Not Implemented
+		Initializator& operator=(Initializator const& copy) = delete; // Not Implemented
 	};
 }

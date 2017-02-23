@@ -4,7 +4,9 @@
 #include <string>
 
 #include <SFML/System/Vector2.hpp>
+
 #include "MV/config/Config.hpp"
+#include "MV/logger/Logger.hpp"
 
 namespace mv
 {
@@ -25,9 +27,13 @@ namespace mv
 		float moveSpeed;
 	protected:
 	private:
+		static Loader *instance;
+
 
 		/* ===Methods=== */
 	public:
+		static Loader& getInstance();
+		static void createInstance();
 
 		//Loads data from file
 		//title
@@ -37,5 +43,8 @@ namespace mv
 		void loadData();
 	protected:
 	private:
+		Loader();
+		Loader(Loader const& copy) = delete;            // Not Implemented
+		Loader& operator=(Loader const& copy) = delete; // Not Implemented
 	};
 }
