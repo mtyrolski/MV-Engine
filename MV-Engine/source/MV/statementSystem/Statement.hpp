@@ -3,6 +3,8 @@
 #include <chrono>
 
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/RenderTexture.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
 
 namespace mv
 {

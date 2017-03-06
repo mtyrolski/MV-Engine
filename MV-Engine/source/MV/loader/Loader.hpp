@@ -43,7 +43,7 @@ namespace mv
 		void loadData();
 	protected:
 	private:
-		Loader();
+		Loader() = default;
 		Loader(Loader const& copy) = delete;            // Not Implemented
 		Loader& operator=(Loader const& copy) = delete; // Not Implemented
 	};

@@ -4,6 +4,7 @@
 namespace mv
 {
 	Initializator* Initializator::instance;
+
 	void Initializator::init()
 	{
 		StateSystem::readStatesFromFile("data/states/states.txt");

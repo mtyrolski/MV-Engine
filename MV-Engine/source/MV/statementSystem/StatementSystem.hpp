@@ -25,10 +25,10 @@ namespace mv
 		static void createInstance();
 		static StatementSystem& getInstance();
 
-		std::vector<Statement>& getStatements;
+		std::vector<Statement>& getStatements();
 	protected:
 	private:
-		StatementSystem();
+		StatementSystem() = default;
 		StatementSystem(StatementSystem const& copy) = delete;            // Not Implemented
 		StatementSystem& operator=(StatementSystem const& copy) = delete; // Not Implemented
 	};

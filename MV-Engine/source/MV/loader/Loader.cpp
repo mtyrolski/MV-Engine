@@ -30,6 +30,6 @@ namespace mv
 	void Loader::createInstance()
 	{
 		if (instance == 0)
-			instance = new Loader();
+			instance = new Loader;
 	}
 }

@@ -21,7 +21,7 @@ namespace mv
 		static void createInstance();
 	protected:
 	private:
-		Initializator();
+		Initializator() = default;
 		Initializator(Initializator const& copy) = delete;            // Not Implemented
 		Initializator& operator=(Initializator const& copy) = delete; // Not Implemented
 	};
