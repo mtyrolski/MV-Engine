@@ -8,6 +8,7 @@
 #include "MV/mapManager/MapManager.hpp"
 #include "MV/cell/Cell.hpp"
 #include "MV/initializator/Initializator.hpp"
+#include "MV/statementSystem/StatementSystem.hpp"
 #include "MV/scene/Scene.hpp"
 #include "MV/loader/Loader.hpp"
 #include "EventControl.hpp"
@@ -27,6 +28,8 @@ int main()
 	mv::MapManager::createInstance(mv::Loader::getInstance().ammount, mv::Loader::getInstance().cellDimensions);
 	mv::MapManager::getInstance().constructWholeWorld(mv::constants::defaults::EMPTY);
 
+	mv::StatementSystem::createInstance();
+
 	//main game loop
 	while (mv::Scene::getInstance().isOpen())
 	{
@@ -35,6 +38,7 @@ int main()
 		mv::Scene::getInstance().clear();
 		mv::MapManager::getInstance().updateCells();
 		mv::Scene::getInstance().drawCollection<mv::Cell>(mv::MapManager::getInstance().getCellStorage());
+		mv::Scene::getInstance().drawCollection<mv::Statement>(&mv::StatementSystem::getInstance().getStatements());
 		mv::Scene::getInstance().display();
 
 		mv::EventControl::getInstance().checkEvent(event);

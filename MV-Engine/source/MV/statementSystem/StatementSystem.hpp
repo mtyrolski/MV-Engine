@@ -7,6 +7,8 @@
 #include "MV/logger/Logger.hpp"
 #include "MV/statementSystem/Statement.hpp"
 
+#include <vector>
+
 namespace mv
 {
 	class StatementSystem final
@@ -26,6 +28,10 @@ namespace mv
 		static StatementSystem& getInstance();
 
 		std::vector<Statement>& getStatements();
+
+		void control();
+
+		void addStatement(const std::string& _text, float time);
 	protected:
 	private:
 		StatementSystem() = default;

@@ -22,4 +22,22 @@ namespace mv
 	{
 		return statements;
 	}
+
+	void StatementSystem::control()
+	{
+		for (auto itr = statements.begin(); itr != statements.end(); ++itr)
+		{
+			if (!itr->isActive())
+			{
+				auto prev = itr - 1;
+				statements.erase(itr);
+				itr = prev;
+			}
+		}
+	}
+
+	void StatementSystem::addStatement(const std::string & _text, float time)
+	{
+		statements.emplace_back(_text, time);
+	}
 }
