@@ -8,7 +8,10 @@ namespace mv
 	void StatementSystem::createInstance()
 	{
 		if (instance == 0)
+		{
 			instance = new StatementSystem();
+			instance->font.loadFromFile("data/font/arial.ttf");
+		}
 	}
 
 	StatementSystem & StatementSystem::getInstance()
@@ -25,19 +28,17 @@ namespace mv
 
 	void StatementSystem::control()
 	{
-		for (auto itr = statements.begin(); itr != statements.end(); ++itr)
+		for (auto itr = statements.begin(); itr != statements.end();)
 		{
 			if (!itr->isActive())
-			{
-				auto prev = itr - 1;
-				statements.erase(itr);
-				itr = prev;
-			}
+				itr = statements.erase(itr);
+			else
+				++itr;
 		}
 	}
 
 	void StatementSystem::addStatement(const std::string & _text, float time)
 	{
-		statements.emplace_back(_text, time);
+		statements.emplace_back(_text, time,font,statements);
 	}
 }

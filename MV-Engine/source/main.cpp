@@ -37,6 +37,8 @@ int main()
 
 		mv::Scene::getInstance().clear();
 		mv::MapManager::getInstance().updateCells();
+		mv::StatementSystem::getInstance().control();
+
 		mv::Scene::getInstance().drawCollection<mv::Cell>(mv::MapManager::getInstance().getCellStorage());
 		mv::Scene::getInstance().drawCollection<mv::Statement>(&mv::StatementSystem::getInstance().getStatements());
 		mv::Scene::getInstance().display();
