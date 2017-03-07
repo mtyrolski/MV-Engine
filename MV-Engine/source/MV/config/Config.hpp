@@ -19,6 +19,11 @@ namespace mv
 			constexpr auto PREFIX_WARNING = "[WARNING]";
 			constexpr auto PREFIX_ERROR = "[ERROR]";
 		}
+
+		namespace scene
+		{
+			constexpr auto ZOOM_SPEED = 0.05f;
+		}
 		
 		namespace error
 		{

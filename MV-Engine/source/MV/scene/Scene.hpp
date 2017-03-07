@@ -8,6 +8,7 @@
 #include "MV/config/Config.hpp"
 #include "MV/logger/logger.hpp"
 #include "MV/cell/Cell.hpp"
+#include "MV/mapManager/MapManager.hpp"
 
 
 namespace mv
@@ -16,9 +17,17 @@ namespace mv
 	{
 		/* ===Objects=== */
 	public:
+
+		enum class ZOOM_STATE
+		{
+			ZOOM,
+			DECREASE
+		};
+
 	protected:
 	private:
 		sf::RenderWindow *window;
+		sf::View view;
 
 		static Scene* instance;
 		/* ===Methods=== */
@@ -38,6 +47,8 @@ namespace mv
 		//Tell whether or not the window is open
 		bool isOpen() const;
 
+		void zoom(ZOOM_STATE state);
+
 		//Draws given collection of T objects
 		//returns false if T doesn't inhert from sf::Drawable
 		template < typename T = typename std::enable_if< std::is_base_of<sf::Drawable, T>::value, T>::type>
@@ -47,8 +58,6 @@ namespace mv
 		sf::RenderWindow *GetPointerToWindow();
 
 		void close();
-
-		void viewUpdate(sf::View *view);
 	protected:
 	private:
 		Scene(const std::string& title = constants::defaults::UNNAMED, const sf::Vector2f& dimensions = constants::defaults::WINDOW_DIMENSIONS);
