@@ -60,12 +60,25 @@ namespace mv
 
 	bool SoundObject::PlaySound( std::string & name )
 	{
-		if ( !IsSoundExist( name ) )
+		if (!IsSoundExist(name))
+		{
+			playOnce(name);
 			return false;
+		}
+			
 
 		soundSource[sounds[name]].first.play();
 
 		return true;
+	}
+
+	void SoundObject::playOnce(std::string & name)
+	{
+		sf::SoundBuffer soundBuffer;
+		soundBuffer.loadFromFile("data/sounds/" + name);
+		sf::Sound sound;
+		sound.setBuffer(soundBuffer);
+		sound.play();
 	}
 }
 

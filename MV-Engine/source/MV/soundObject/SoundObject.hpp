@@ -16,6 +16,16 @@ namespace mv
 	class SoundObject
 	{
 	public:
+	protected:
+	private:
+
+		std::map<std::string, int8_t> sounds;
+
+		std::vector<std::pair<sf::Sound, sf::SoundBuffer>> soundSource;
+
+		/* ===Methods=== */
+
+	public:
 
 		//Emplaces new sound
 		//returns false if sound with given name exist 
@@ -69,10 +79,8 @@ namespace mv
 			return PlaySound(name);
 		}
 
+	protected:
 	private:
-
-		std::map<std::string, int8_t> sounds;
-
-		std::vector<std::pair<sf::Sound, sf::SoundBuffer>> soundSource;
+		void playOnce(std::string & name);
 	};
 }
