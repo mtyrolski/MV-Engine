@@ -11,6 +11,8 @@
 #include "MV/statementSystem/StatementSystem.hpp"
 #include "MV/scene/Scene.hpp"
 #include "MV/loader/Loader.hpp"
+#include "MV/soundObject/SoundObject.hpp"
+
 #include "EventControl.hpp"
 
 int main()
@@ -30,6 +32,11 @@ int main()
 
 
 	mv::StatementSystem::createInstance();
+	
+	mv::SoundObject soundObject;
+
+	soundObject.EmplaceSound("text.wav");
+	soundObject.PlaySound("text.wav");
 
 	//main game loop
 	while (mv::Scene::getInstance().isOpen())
