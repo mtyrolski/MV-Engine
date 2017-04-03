@@ -11,6 +11,7 @@
 #include "MV/statementSystem/StatementSystem.hpp"
 #include "MV/scene/Scene.hpp"
 #include "MV/loader/Loader.hpp"
+#include "MV/InputManager/InputManager.hpp"
 
 #include "EventControl.hpp"
 
@@ -30,7 +31,9 @@ int main()
 	mv::EventControl::createInstance(&mv::Scene::getInstance());
 
 	mv::StatementSystem::createInstance();
-	
+
+	mv::InputManager inputManager;
+
 	//main game loop
 	while (mv::Scene::getInstance().isOpen())
 	{
@@ -39,6 +42,8 @@ int main()
 		mv::Scene::getInstance().clear();
 		mv::MapManager::getInstance().updateCells();
 		mv::StatementSystem::getInstance().control();
+
+		inputManager.control();
 
 		mv::Scene::getInstance().drawCollection<mv::Cell>(mv::MapManager::getInstance().getCellStorage());
 		mv::Scene::getInstance().drawCollection<mv::Statement>(&mv::StatementSystem::getInstance().getStatements());
