@@ -81,6 +81,6 @@ namespace mv
 
 	protected:
 	private:
-		void playOnce(std::string & name);
+		bool playOnce(std::string & name);
 	};
 }

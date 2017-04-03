@@ -29,7 +29,6 @@ int main()
 		
 	mv::EventControl::createInstance(&mv::Scene::getInstance());
 
-
 	mv::StatementSystem::createInstance();
 	
 	//main game loop

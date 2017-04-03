@@ -62,23 +62,17 @@ namespace mv
 	{
 		if (!IsSoundExist(name))
 		{
-			playOnce(name);
+			Logger::Log(constants::error::soundObject::DOES_NOT_EXIST_IN_SYSTEM, Logger::STREAM::CONSOLE, Logger::TYPE::WARNING);
 			return false;
 		}
-			
-
+	
 		soundSource[sounds[name]].first.play();
 
-		return true;
-	}
+		while (soundSource[sounds[name]].first.getStatus() == sf::Sound::Playing)
+		{
+		}
 
-	void SoundObject::playOnce(std::string & name)
-	{
-		sf::SoundBuffer soundBuffer;
-		soundBuffer.loadFromFile("data/sounds/" + name);
-		sf::Sound sound;
-		sound.setBuffer(soundBuffer);
-		sound.play();
+		return true;
 	}
 }
 

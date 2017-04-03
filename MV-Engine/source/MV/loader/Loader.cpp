@@ -2,7 +2,7 @@
 
 namespace mv
 {
-	Loader* Loader::instance;
+	Loader* Loader::instance = nullptr;
 
 	void Loader::loadData()
 	{
@@ -20,10 +20,11 @@ namespace mv
 	}
 
 
-	Loader & Loader::getInstance()
+	Loader& Loader::getInstance()
 	{
-		if (instance == 0)
+		if (instance == nullptr)
 			Logger::Log(constants::error::singleton::SINGLETON_NOT_INITED, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
+		
 		return *instance;
 	}
 

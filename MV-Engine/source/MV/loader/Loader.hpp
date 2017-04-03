@@ -27,7 +27,7 @@ namespace mv
 		float moveSpeed;
 	protected:
 	private:
-		static Loader *instance;
+		static Loader* instance;
 
 
 		/* ===Methods=== */
