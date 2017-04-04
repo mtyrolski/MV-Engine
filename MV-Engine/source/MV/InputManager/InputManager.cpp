@@ -9,12 +9,15 @@ namespace mv
 				var.second();
 	}
 
-	bool InputManager::addKeyToCheck(sf::Keyboard::Key key, void(*function)())
+	bool InputManager::addKeyToCheck(sf::Keyboard::Key key, std::function<void()> function)
 	{
 		keyData.emplace(key, function);
 
 		return true;
 	}
+
+
+
 	bool InputManager::eraseKey(sf::Keyboard::Key key)
 	{
 		keyData.erase(key);

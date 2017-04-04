@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <functional>
 
 #include <SFML/Window/Keyboard.hpp>
 
@@ -13,12 +14,12 @@ namespace mv
 	public:
 	protected:
 	private:
-		std::map < sf::Keyboard::Key, void(*)() > keyData;
+		std::map < sf::Keyboard::Key, std::function<void()> > keyData;
 		/* ===Methods=== */
 	public:
 		void control();
 
-		bool addKeyToCheck(sf::Keyboard::Key key, void(*function)());
+		bool addKeyToCheck(sf::Keyboard::Key key, std::function<void()> function);
 
 		bool eraseKey(sf::Keyboard::Key key);
 	protected:
