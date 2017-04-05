@@ -12,6 +12,7 @@
 #include "MV/scene/Scene.hpp"
 #include "MV/loader/Loader.hpp"
 #include "MV/InputManager/InputManager.hpp"
+#include "MV/mouse/Mouse.hpp"
 
 #include "EventControl.hpp"
 
@@ -32,6 +33,8 @@ int main()
 
 	mv::StatementSystem::createInstance();
 
+	mv::Mouse mouse;
+
 	mv::InputManager inputManager;
 
 	//main game loop
@@ -39,6 +42,7 @@ int main()
 	{
 		sf::Event event;
 
+		mouse.tick();
 		mv::Scene::getInstance().clear();
 		mv::MapManager::getInstance().updateCells();
 		mv::StatementSystem::getInstance().control();

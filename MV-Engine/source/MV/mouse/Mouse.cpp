@@ -39,8 +39,8 @@ namespace mv
 
 	}
 
-	Mouse::Mouse(const Mouse::TYPE& type)
-		:tolerance(100, 100)
+	Mouse::Mouse(const Mouse::TYPE & type, bool movingBorderPermission)
+		:tolerance(mv::constants::defaults::BORDER_TOLERANCE.x, mv::constants::defaults::BORDER_TOLERANCE.y)
 	{
 		//texture to do
 	}
@@ -50,9 +50,26 @@ namespace mv
 		//to do
 	}
 
+	void Mouse::setBorderMovingMode(bool mode)
+	{
+		movingPermission = mode;
+	}
+
+	void Mouse::setTolerance(sf::Vector2u value)
+	{
+		tolerance = value;
+	}
+
+	void Mouse::setTolerance(unsigned long value_x, unsigned long value_y)
+	{
+		setTolerance(sf::Vector2u(value_x, value_y));
+	}
+
 	void Mouse::tick()
 	{
 		positionUpdate();
-		checkBorders();
+
+		if(movingPermission)
+			checkBorders();
 	}
 }

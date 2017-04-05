@@ -42,12 +42,12 @@ namespace mv
 		friend class InputManager;
 		friend class Initializator;
 
-		const float speed;
+		float viewSpeed;
 		/* ===Methods=== */
 	public:
 		static Scene& getInstance();
 
-		static void createInstance(const std::string& title = constants::defaults::UNNAMED, const sf::Vector2f& dimensions = constants::defaults::WINDOW_DIMENSIONS);
+		static void createInstance(const std::string& title = constants::defaults::UNNAMED, const sf::Vector2f& dimensions = constants::defaults::WINDOW_DIMENSIONS, float speed = 1.f);
 
 		~Scene();
 
@@ -69,6 +69,9 @@ namespace mv
 		template < typename T = typename std::enable_if< std::is_base_of<sf::Drawable, T>::value, T>::type>
 		bool drawCollection(std::vector<T> *collection);
 
+		float getMoveSpeed();
+
+		void setMoveSpeed(float value);
 
 		sf::RenderWindow *GetPointerToWindow();
 

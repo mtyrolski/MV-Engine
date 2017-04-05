@@ -17,7 +17,7 @@ namespace mv
 		return *instance;
 	}
 
-	void Scene::createInstance(const std::string& title, const sf::Vector2f& dimensions)
+	void Scene::createInstance(const std::string& title, const sf::Vector2f& dimensions, float speed)
 	{
 		if (instance == 0)
 		{
@@ -25,6 +25,7 @@ namespace mv
 			instance->view.setCenter((MapManager::getInstance().getCellDimensions().x*MapManager::getInstance().getUnitWorldSize().x)/2.f,(MapManager::getInstance().getCellDimensions().y*MapManager::getInstance().getUnitWorldSize().y)/2.f);
 			instance->window->setView(instance->view);
 			instance->window->setFramerateLimit(128);
+			instance->viewSpeed = speed;
 		}
 	}
 
@@ -35,7 +36,7 @@ namespace mv
 	}
 
 	Scene::Scene(const std::string& title, const sf::Vector2f& dimensions)
-		:speed(2.f)
+		:viewSpeed(2.f)
 	{
 		window = new sf::RenderWindow(sf::VideoMode(dimensions.x, dimensions.y), title);
 	}
@@ -77,25 +78,36 @@ namespace mv
 		{
 			case DIRECTION::TOP:
 			{
-				view.move(0,-speed);
+				view.move(0,-viewSpeed);
 				break;
 			}
 			case DIRECTION::RIGHT:
 			{
-				view.move(speed,0);
+				view.move(viewSpeed,0);
 				break;
 			}
 			case DIRECTION::DOWN:
 			{
-				view.move(0, speed);
+				view.move(0, viewSpeed);
 				break;
 			}
 			case DIRECTION::LEFT:
 			{
-				view.move(-speed, 0);
+				view.move(-viewSpeed, 0);
 				break;
 			}
 		}
+		window->setView(view);
+	}
+
+	float Scene::getMoveSpeed()
+	{
+		return viewSpeed;
+	}
+
+	void Scene::setMoveSpeed(float value)
+	{
+		viewSpeed = value;
 	}
 
 	sf::RenderWindow * Scene::GetPointerToWindow()

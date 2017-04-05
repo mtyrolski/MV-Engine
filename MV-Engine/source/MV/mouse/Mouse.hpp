@@ -24,11 +24,19 @@ namespace mv
 
 		//to checking border
 		sf::Vector2u tolerance;
+ 
+		bool movingPermission;
+
 		/* ===Methods=== */
 	public:
-		Mouse(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT);
+		Mouse(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT, bool movingBorderPermission = true);
 
 		void changeType(const Mouse::TYPE& type);
+
+		void setBorderMovingMode(bool mode);
+
+		void setTolerance(sf::Vector2u value);
+		void setTolerance(unsigned long value_x, unsigned long value_y);
 
 		void tick();
 	protected:
