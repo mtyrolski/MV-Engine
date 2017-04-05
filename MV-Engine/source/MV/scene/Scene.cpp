@@ -35,6 +35,7 @@ namespace mv
 	}
 
 	Scene::Scene(const std::string& title, const sf::Vector2f& dimensions)
+		:speed(2.f)
 	{
 		window = new sf::RenderWindow(sf::VideoMode(dimensions.x, dimensions.y), title);
 	}
@@ -70,6 +71,33 @@ namespace mv
 		instance->window->setView(instance->view);
 	}
 
+	void Scene::moveView(DIRECTION direction)
+	{
+		switch (direction)
+		{
+			case DIRECTION::TOP:
+			{
+				view.move(0,-speed);
+				break;
+			}
+			case DIRECTION::RIGHT:
+			{
+				view.move(speed,0);
+				break;
+			}
+			case DIRECTION::DOWN:
+			{
+				view.move(0, speed);
+				break;
+			}
+			case DIRECTION::LEFT:
+			{
+				view.move(-speed, 0);
+				break;
+			}
+		}
+	}
+
 	sf::RenderWindow * Scene::GetPointerToWindow()
 	{
 		return window;
@@ -78,6 +106,26 @@ namespace mv
 	void Scene::close()
 	{
 		window->close();
+	}
+
+	void Scene::moveViewRight()
+	{
+		moveView(DIRECTION::RIGHT);
+	}
+
+	void Scene::moveViewLeft()
+	{
+		moveView(DIRECTION::LEFT);
+	}
+
+	void Scene::moveViewTop()
+	{
+		moveView(DIRECTION::TOP);
+	}
+
+	void Scene::moveViewDown()
+	{
+		moveView(DIRECTION::DOWN);
 	}
 
 }

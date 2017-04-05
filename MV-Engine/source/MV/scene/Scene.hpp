@@ -24,12 +24,25 @@ namespace mv
 			DECREASE
 		};
 
+		enum class DIRECTION
+		{
+			TOP,
+			RIGHT,
+			DOWN,
+			LEFT
+		};
+
 	protected:
 	private:
 		sf::RenderWindow *window;
 		sf::View view;
 
 		static Scene* instance;
+
+		friend class InputManager;
+		friend class Initializator;
+
+		const float speed;
 		/* ===Methods=== */
 	public:
 		static Scene& getInstance();
@@ -49,6 +62,8 @@ namespace mv
 
 		void zoom(ZOOM_STATE state);
 
+		void moveView(DIRECTION direction);
+
 		//Draws given collection of T objects
 		//returns false if T doesn't inhert from sf::Drawable
 		template < typename T = typename std::enable_if< std::is_base_of<sf::Drawable, T>::value, T>::type>
@@ -58,12 +73,17 @@ namespace mv
 		sf::RenderWindow *GetPointerToWindow();
 
 		void close();
+
+		void moveViewRight();
+		void moveViewLeft();
+		void moveViewTop();
+		void moveViewDown();
 	protected:
 	private:
 		Scene(const std::string& title = constants::defaults::UNNAMED, const sf::Vector2f& dimensions = constants::defaults::WINDOW_DIMENSIONS);
 		Scene() = delete;  // Not Implemented
 		Scene(Scene const& copy) = delete;            // Not Implemented
-		Scene& operator=(Scene const& copy) = delete; // Not Implemented
+		Scene& operator=(Scene const& copy) = delete; // Not Implemented	
 	};
 
 
@@ -75,5 +95,4 @@ namespace mv
 
 		return true;
 	}
-
 }
