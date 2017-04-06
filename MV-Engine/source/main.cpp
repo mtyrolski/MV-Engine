@@ -36,8 +36,11 @@ int main()
 	mv::Mouse mouse;
 
 	mv::InputManager inputManager;
-//	inputManager.addKeyToCheck(sf::Keyboard::A, std::bind(&mv::Scene::moveViewLeft, mv::Scene::getInstance()));
 
+	inputManager.addKeyToCheck(sf::Keyboard::A, []() { mv::Scene::getInstance().moveViewLeft(); });
+	inputManager.addKeyToCheck(sf::Keyboard::D, []() { mv::Scene::getInstance().moveViewRight(); });
+	inputManager.addKeyToCheck(sf::Keyboard::W, []() { mv::Scene::getInstance().moveViewTop(); });
+	inputManager.addKeyToCheck(sf::Keyboard::S, []() { mv::Scene::getInstance().moveViewDown(); });
 
 	//main game loop
 	while (mv::Scene::getInstance().isOpen())
