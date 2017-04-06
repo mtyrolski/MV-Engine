@@ -7,10 +7,11 @@
 #include "SFML/Window/Mouse.hpp"
 
 #include "MV/scene/Scene.hpp"
+#include "MV//ticker/Ticker.hpp"
 
 namespace mv
 {
-	class Mouse : public sf::Drawable
+	class Mouse : public sf::Drawable, public Ticker
 	{
 		/* ===Objects=== */
 	public:
@@ -30,6 +31,7 @@ namespace mv
 		/* ===Methods=== */
 	public:
 		Mouse(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT, bool movingBorderPermission = true);
+		~Mouse();
 
 		void changeType(const Mouse::TYPE& type);
 
@@ -38,7 +40,8 @@ namespace mv
 		void setTolerance(sf::Vector2u value);
 		void setTolerance(unsigned long value_x, unsigned long value_y);
 
-		void tick();
+		void tick() override;
+
 	protected:
 	private:
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

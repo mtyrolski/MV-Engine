@@ -1,17 +1,18 @@
 #pragma once
 
 #include <chrono>
+#include <vector>
 
 #include <SFML/Graphics/Font.hpp>
 
 #include "MV/logger/Logger.hpp"
 #include "MV/statementSystem/Statement.hpp"
+#include "MV//ticker/Ticker.hpp"
 
-#include <vector>
 
 namespace mv
 {
-	class StatementSystem final
+	class StatementSystem final : public Ticker
 	{
 		/* ===Objects=== */
 	public:
@@ -29,12 +30,13 @@ namespace mv
 
 		std::vector<Statement>& getStatements();
 
-		void control();
+		void tick() override;
 
 		void addStatement(const std::string& _text, float time);
 	protected:
 	private:
-		StatementSystem() = default;
+		StatementSystem();
+		~StatementSystem();
 		StatementSystem(StatementSystem const& copy) = delete;            // Not Implemented
 		StatementSystem& operator=(StatementSystem const& copy) = delete; // Not Implemented
 	};

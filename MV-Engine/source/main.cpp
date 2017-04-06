@@ -13,7 +13,7 @@
 #include "MV/loader/Loader.hpp"
 #include "MV/InputManager/InputManager.hpp"
 #include "MV/mouse/Mouse.hpp"
-
+#include "MV/ticker/Ticker.hpp"
 #include "EventControl.hpp"
 
 int main()
@@ -36,6 +36,8 @@ int main()
 	mv::Mouse mouse;
 
 	mv::InputManager inputManager;
+//	inputManager.addKeyToCheck(sf::Keyboard::A, std::bind(&mv::Scene::moveViewLeft, mv::Scene::getInstance()));
+
 
 	//main game loop
 	while (mv::Scene::getInstance().isOpen())
@@ -45,9 +47,8 @@ int main()
 		mouse.tick();
 		mv::Scene::getInstance().clear();
 		mv::MapManager::getInstance().updateCells();
-		mv::StatementSystem::getInstance().control();
-
-		inputManager.control();
+		
+		mv::Ticker::tickLoop();
 
 		mv::Scene::getInstance().drawCollection<mv::Cell>(mv::MapManager::getInstance().getCellStorage());
 		mv::Scene::getInstance().drawCollection<mv::Statement>(&mv::StatementSystem::getInstance().getStatements());

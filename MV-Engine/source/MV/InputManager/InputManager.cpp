@@ -2,7 +2,17 @@
 
 namespace mv
 {
-	void InputManager::control()
+	InputManager::InputManager()
+		:Ticker(this)
+	{
+	}
+
+	InputManager::~InputManager()
+	{
+		Ticker::removePointer(this);
+	}
+
+	void InputManager::tick()
 	{
 		for (auto&var : keyData)
 			if (sf::Keyboard::isKeyPressed(var.first))

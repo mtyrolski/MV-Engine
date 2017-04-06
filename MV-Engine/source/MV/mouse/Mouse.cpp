@@ -40,9 +40,15 @@ namespace mv
 	}
 
 	Mouse::Mouse(const Mouse::TYPE & type, bool movingBorderPermission)
-		:tolerance(mv::constants::defaults::BORDER_TOLERANCE.x, mv::constants::defaults::BORDER_TOLERANCE.y)
+		:tolerance(mv::constants::defaults::BORDER_TOLERANCE.x, mv::constants::defaults::BORDER_TOLERANCE.y),
+		Ticker(this)
 	{
 		//texture to do
+	}
+
+	Mouse::~Mouse()
+	{
+		Ticker::removePointer(this);
 	}
 
 	void Mouse::changeType(const Mouse::TYPE & type)

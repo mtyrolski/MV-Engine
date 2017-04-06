@@ -3,12 +3,14 @@
 #include <map>
 #include <functional>
 
-#include <SFML/Window/Keyboard.hpp>
+#include "SFML/Window/Keyboard.hpp"
+
+#include "MV//ticker/Ticker.hpp"
 
 
 namespace mv
 {
-	class InputManager
+	class InputManager : public Ticker
 	{
 		/* ===Objects=== */
 	public:
@@ -17,7 +19,10 @@ namespace mv
 		std::map < sf::Keyboard::Key, std::function<void()> > keyData;
 		/* ===Methods=== */
 	public:
-		void control();
+		InputManager();
+		~InputManager();
+
+		void tick() override;
 
 		bool addKeyToCheck(sf::Keyboard::Key key, std::function<void()> function);
 

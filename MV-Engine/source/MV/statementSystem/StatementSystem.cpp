@@ -5,6 +5,16 @@ namespace mv
 
 	StatementSystem* StatementSystem::instance;
 
+	StatementSystem::StatementSystem()
+		:Ticker(this)
+	{
+	}
+
+	StatementSystem::~StatementSystem()
+	{
+		Ticker::removePointer(this);
+	}
+
 	void StatementSystem::createInstance()
 	{
 		if (instance == 0)
@@ -26,7 +36,7 @@ namespace mv
 		return statements;
 	}
 
-	void StatementSystem::control()
+	void StatementSystem::tick()
 	{
 		for (auto itr = statements.begin(); itr != statements.end();)
 		{
