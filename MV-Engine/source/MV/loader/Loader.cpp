@@ -32,5 +32,9 @@ namespace mv
 	{
 		if (instance == 0)
 			instance = new Loader;
+		else
+		{
+			Logger::Log(constants::error::singleton::SINGLETON_INITED, Logger::STREAM::CONSOLE, Logger::TYPE::INFO);
+		}
 	}
 }

@@ -40,6 +40,10 @@ namespace mv
 	{
 		if (instance == 0)
 			instance = new MapManager(uWorldSize,cellDim);
+		else
+		{
+			Logger::Log(constants::error::singleton::SINGLETON_INITED, Logger::STREAM::CONSOLE, Logger::TYPE::INFO);
+		}
 	}
 
 	sf::Vector2i MapManager::getUnitWorldSize()

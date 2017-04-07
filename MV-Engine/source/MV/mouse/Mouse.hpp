@@ -29,9 +29,14 @@ namespace mv
  
 		bool movingPermission;
 		mv::Cache<sf::Texture> cache;
+
+		static Mouse *instance;
 		/* ===Methods=== */
 	public:
-		Mouse(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT, bool movingBorderPermission = false);
+		static Mouse& getInstance();
+
+		static void createInstance(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT, bool movingBorderPermission = false);
+
 		~Mouse();
 
 		void changeType(const Mouse::TYPE& type);
@@ -41,10 +46,17 @@ namespace mv
 		void setTolerance(sf::Vector2u value);
 		void setTolerance(unsigned long value_x, unsigned long value_y);
 
+		void changeScale(float change);
+
 		void tick() override;
 
 	protected:
 	private:
+		Mouse(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT, bool movingBorderPermission = false);
+		Mouse() = delete;  // Not Implemented
+		Mouse(Mouse const& copy) = delete;            // Not Implemented
+		Mouse& operator=(Mouse const& copy) = delete; // Not Implemented
+
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 		void positionUpdate();

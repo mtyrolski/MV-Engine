@@ -55,6 +55,7 @@ namespace mv
 			namespace singleton
 			{
 				constexpr auto SINGLETON_NOT_INITED = "Singleon must be inited!";
+				constexpr auto SINGLETON_INITED = "Singleon has been inited before";
 			}
 
 			namespace soundObject

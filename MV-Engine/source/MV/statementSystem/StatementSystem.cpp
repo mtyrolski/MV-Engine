@@ -22,6 +22,10 @@ namespace mv
 			instance = new StatementSystem();
 			instance->font.loadFromFile("data/font/arial.ttf");
 		}
+		else
+		{
+			Logger::Log(constants::error::singleton::SINGLETON_INITED, Logger::STREAM::CONSOLE, Logger::TYPE::INFO);
+		}
 	}
 
 	StatementSystem & StatementSystem::getInstance()

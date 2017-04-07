@@ -9,6 +9,7 @@
 #include "MV/logger/logger.hpp"
 #include "MV/cell/Cell.hpp"
 #include "MV/mapManager/MapManager.hpp"
+#include "MV/mouse/Mouse.hpp"
 
 
 namespace mv

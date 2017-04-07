@@ -34,7 +34,7 @@ int main()
 
 	mv::StatementSystem::createInstance();
 
-	mv::Mouse mouse;
+	mv::Mouse::createInstance();
 
 	mv::InputManager inputManager;
 
@@ -48,7 +48,6 @@ int main()
 	{
 		sf::Event event;
 
-		mouse.tick();
 		mv::Scene::getInstance().clear();
 		mv::MapManager::getInstance().updateCells();
 		
@@ -56,7 +55,7 @@ int main()
 
 		mv::Scene::getInstance().drawCollection<mv::Cell>(mv::MapManager::getInstance().getCellStorage());
 		mv::Scene::getInstance().drawCollection<mv::Statement>(&mv::StatementSystem::getInstance().getStatements());
-		mv::Scene::getInstance().GetPointerToWindow()->draw(mouse);
+		mv::Scene::getInstance().GetPointerToWindow()->draw(mv::Mouse::getInstance());
 		mv::Scene::getInstance().display();
 
 		mv::EventControl::getInstance().checkEvent(event);

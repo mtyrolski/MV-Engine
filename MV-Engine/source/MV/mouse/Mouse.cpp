@@ -2,6 +2,8 @@
 #include <iostream>
 namespace mv
 {
+	Mouse *Mouse::instance;
+
 	void Mouse::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	{
 		target.draw(object, states);
@@ -48,6 +50,26 @@ namespace mv
 		object.setOrigin(object.getGlobalBounds().width / 2, object.getGlobalBounds().height / 2);
 	}
 
+	Mouse & Mouse::getInstance()
+	{
+		if (instance == 0)
+			Logger::Log(constants::error::singleton::SINGLETON_NOT_INITED, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
+
+		return *instance;
+	}
+
+	void Mouse::createInstance(const Mouse::TYPE & type, bool movingBorderPermission)
+	{
+		if (instance == 0)
+		{
+			instance = new Mouse(type, movingBorderPermission);
+		}
+		else
+		{
+			Logger::Log(constants::error::singleton::SINGLETON_INITED, Logger::STREAM::CONSOLE, Logger::TYPE::INFO);
+		}
+	}
+
 	Mouse::~Mouse()
 	{
 		Ticker::removePointer(this);
@@ -71,6 +93,11 @@ namespace mv
 	void Mouse::setTolerance(unsigned long value_x, unsigned long value_y)
 	{
 		setTolerance(sf::Vector2u(value_x, value_y));
+	}
+
+	void Mouse::changeScale(float change)
+	{
+		object.setScale(sf::Vector2f(object.getScale().x+change, object.getScale().y+change));
 	}
 
 	void Mouse::tick()

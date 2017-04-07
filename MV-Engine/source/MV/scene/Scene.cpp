@@ -26,6 +26,11 @@ namespace mv
 			instance->window->setView(instance->view);
 			instance->window->setFramerateLimit(128);
 			instance->viewSpeed = speed;
+			instance->window->setMouseCursorVisible(false);
+		}
+		else
+		{
+			Logger::Log(constants::error::singleton::SINGLETON_INITED, Logger::STREAM::CONSOLE, Logger::TYPE::INFO);
 		}
 	}
 
@@ -59,12 +64,14 @@ namespace mv
 			case ZOOM_STATE::ZOOM:
 			{
 				instance->view.zoom(1+constants::scene::ZOOM_SPEED);
+				Mouse::getInstance().changeScale(constants::scene::ZOOM_SPEED);
 				break;
 			}
 
 			case ZOOM_STATE::DECREASE:
 			{
 				instance->view.zoom(1-constants::scene::ZOOM_SPEED);
+				Mouse::getInstance().changeScale(-constants::scene::ZOOM_SPEED);
 				break;
 			}
 		}
