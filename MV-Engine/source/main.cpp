@@ -14,6 +14,7 @@
 #include "MV/InputManager/InputManager.hpp"
 #include "MV/mouse/Mouse.hpp"
 #include "MV/ticker/Ticker.hpp"
+
 #include "EventControl.hpp"
 
 int main()
@@ -55,6 +56,7 @@ int main()
 
 		mv::Scene::getInstance().drawCollection<mv::Cell>(mv::MapManager::getInstance().getCellStorage());
 		mv::Scene::getInstance().drawCollection<mv::Statement>(&mv::StatementSystem::getInstance().getStatements());
+		mv::Scene::getInstance().GetPointerToWindow()->draw(mouse);
 		mv::Scene::getInstance().display();
 
 		mv::EventControl::getInstance().checkEvent(event);

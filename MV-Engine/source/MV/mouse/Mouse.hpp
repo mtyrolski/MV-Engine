@@ -8,6 +8,7 @@
 
 #include "MV/scene/Scene.hpp"
 #include "MV//ticker/Ticker.hpp"
+#include "MV/resourceCache/Cache.hpp"
 
 namespace mv
 {
@@ -27,10 +28,10 @@ namespace mv
 		sf::Vector2u tolerance;
  
 		bool movingPermission;
-
+		mv::Cache<sf::Texture> cache;
 		/* ===Methods=== */
 	public:
-		Mouse(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT, bool movingBorderPermission = true);
+		Mouse(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT, bool movingBorderPermission = false);
 		~Mouse();
 
 		void changeType(const Mouse::TYPE& type);
