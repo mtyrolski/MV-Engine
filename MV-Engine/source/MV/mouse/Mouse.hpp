@@ -9,6 +9,7 @@
 #include "MV/scene/Scene.hpp"
 #include "MV//ticker/Ticker.hpp"
 #include "MV/resourceCache/Cache.hpp"
+#include "MV/math/Math.hpp"
 
 namespace mv
 {
@@ -61,5 +62,6 @@ namespace mv
 
 		void positionUpdate();
 		void checkBorders();
+		void checkClick();
 	};
 }

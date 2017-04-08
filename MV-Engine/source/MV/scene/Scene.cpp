@@ -64,14 +64,12 @@ namespace mv
 			case ZOOM_STATE::ZOOM:
 			{
 				instance->view.zoom(1+constants::scene::ZOOM_SPEED);
-				Mouse::getInstance().changeScale(constants::scene::ZOOM_SPEED);
 				break;
 			}
 
 			case ZOOM_STATE::DECREASE:
 			{
 				instance->view.zoom(1-constants::scene::ZOOM_SPEED);
-				Mouse::getInstance().changeScale(-constants::scene::ZOOM_SPEED);
 				break;
 			}
 		}

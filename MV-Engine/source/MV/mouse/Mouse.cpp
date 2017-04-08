@@ -41,6 +41,15 @@ namespace mv
 
 	}
 
+	void Mouse::checkClick()
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+		{
+			auto pos = Math::convertToUnitPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition()));
+			std::cout << pos.x << "   " << pos.y << std::endl;
+		}
+	}
+
 	Mouse::Mouse(const Mouse::TYPE & type, bool movingBorderPermission)
 		:tolerance(mv::constants::defaults::BORDER_TOLERANCE.x, mv::constants::defaults::BORDER_TOLERANCE.y),
 		Ticker(this), movingPermission(movingBorderPermission)
@@ -103,6 +112,8 @@ namespace mv
 	void Mouse::tick()
 	{
 		positionUpdate();
+		
+		checkClick();
 
 		if(movingPermission)
 			checkBorders();
