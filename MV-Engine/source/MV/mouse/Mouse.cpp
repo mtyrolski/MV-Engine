@@ -46,6 +46,9 @@ namespace mv
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			auto pos = Math::convertToUnitPosition(object.getPosition());
+
+			if(MapManager::getInstance().isInMap(pos))
+				(*MapManager::getInstance().getCellStorage())[pos.y*MapManager::getInstance().getUnitWorldSize().x + pos.x].changeState();
 		}
 	}
 

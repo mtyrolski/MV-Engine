@@ -32,6 +32,7 @@ namespace mv
 		mv::Cache<sf::Texture> cache;
 
 		static Mouse *instance;
+
 		/* ===Methods=== */
 	public:
 		static Mouse& getInstance();

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ctime>
+
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
@@ -28,6 +30,8 @@ namespace mv
 
 		//Position in unit system
 		const sf::Vector2i unitPosition;
+
+		float lastClickTime;
 
 		/* ===Methods=== */
 	public:

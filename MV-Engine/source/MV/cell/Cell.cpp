@@ -51,14 +51,14 @@ namespace mv
 
 
 	Cell::Cell(sf::Vector2i& uPos, sf::Vector2f& cellDimensions, const std::string& stateName)
-		:unitPosition(uPos)
+		:unitPosition(uPos), lastClickTime(clock()),nextState(0)
 	{
 		setVisualSettings(cellDimensions, uPos);
 		setBasicParameters(stateName,cellDimensions,uPos);
 	}
 
 	Cell::Cell(sf::Vector2i & uPos, sf::Vector2f & cellDimensions, int stateNumber)
-		:unitPosition(uPos)
+		:unitPosition(uPos),lastClickTime(clock()), nextState(0)
 	{
 		setVisualSettings(cellDimensions, uPos);
 		setBasicParameters(stateNumber,cellDimensions,uPos);
@@ -73,7 +73,11 @@ namespace mv
 
 	void Cell::changeState()
 	{
-		changeState(1);
+		if ((clock() - lastClickTime) / CLOCKS_PER_SEC > constants::mouse::FREQUENCY)
+		{
+			changeState(1);
+			lastClickTime = clock();
+		}	
 	}
 
 	uint8_t Cell::getState() const

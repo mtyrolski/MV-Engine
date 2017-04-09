@@ -50,11 +50,4 @@ namespace mv
 			return (T&)resources[path];
 		}
 	}
-
-	template<typename T>
-	inline T & Cache<T>::get(std::string && path)
-	{
-		return get(path);
-	}
-
 }
