@@ -43,10 +43,9 @@ namespace mv
 
 	void Mouse::checkClick()
 	{
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			auto pos = Math::convertToUnitPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition()));
-			std::cout << pos.x << "   " << pos.y << std::endl;
+			auto pos = Math::convertToUnitPosition(object.getPosition());
 		}
 	}
 
