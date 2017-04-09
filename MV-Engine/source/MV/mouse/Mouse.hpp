@@ -19,7 +19,8 @@ namespace mv
 	public:
 		enum class TYPE
 		{
-			DEFAULT = 0
+			MV_DEFAULT = 0,
+			SYSTEM_DEFAULT = 1,
 		};
 	protected:
 	private:
@@ -37,7 +38,7 @@ namespace mv
 	public:
 		static Mouse& getInstance();
 
-		static void createInstance(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT, bool movingBorderPermission = false);
+		static void createInstance(const Mouse::TYPE& type = Mouse::TYPE::MV_DEFAULT, bool movingBorderPermission = false);
 
 		~Mouse();
 
@@ -54,7 +55,7 @@ namespace mv
 
 	protected:
 	private:
-		Mouse(const Mouse::TYPE& type = Mouse::TYPE::DEFAULT, bool movingBorderPermission = false);
+		Mouse(const Mouse::TYPE& type = Mouse::TYPE::MV_DEFAULT, bool movingBorderPermission = false);
 		Mouse() = delete;  // Not Implemented
 		Mouse(Mouse const& copy) = delete;            // Not Implemented
 		Mouse& operator=(Mouse const& copy) = delete; // Not Implemented
