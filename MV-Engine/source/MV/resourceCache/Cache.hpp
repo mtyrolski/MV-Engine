@@ -17,14 +17,13 @@ namespace mv
 		std::map<std::string, T> resources;
 		/* ===Methods=== */
 	public:
-		T& get(std::string& path);
-		T& get(std::string&& path);
+		T& get(const std::string& path);
 	protected:
 	private:
 	};
 
 	template<typename T>
-	inline T & Cache<T>::get(std::string & path)
+	inline T & Cache<T>::get(const std::string & path)
 	{
 
 		if (path.empty())

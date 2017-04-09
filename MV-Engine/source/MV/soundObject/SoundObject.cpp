@@ -2,7 +2,7 @@
 
 namespace mv
 {
-	bool SoundObject::EmplaceSound( std::string & name )
+	bool SoundObject::EmplaceSound(const std::string & name )
 	{
 		if ( sounds.find( name ) != sounds.end() )
 		{
@@ -26,7 +26,7 @@ namespace mv
 		return true;
 	}
 
-	int8_t SoundObject::GetNumberOfSound( std::string & name )
+	int8_t SoundObject::GetNumberOfSound(const std::string & name )
 	{
 		auto itr = sounds.find( name );
 
@@ -37,7 +37,7 @@ namespace mv
 		} else return itr->second;
 	}
 
-	bool SoundObject::EraseSound( std::string & name )
+	bool SoundObject::EraseSound(const std::string & name )
 	{
 		auto soundIterator = sounds.find( name );
 
@@ -58,7 +58,7 @@ namespace mv
 		return true;
 	}
 
-	bool SoundObject::PlaySound( std::string & name )
+	bool SoundObject::PlaySound(const std::string & name )
 	{
 		if (!IsSoundExist(name))
 		{
