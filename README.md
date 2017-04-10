@@ -1,7 +1,7 @@
 # MV-Engine 1.0
 Engine to creating cellular automatons
 
-#Build your own cellular  automaton faster!
+## Build your own cellular  automaton faster!
 
 <a href="url"><img src="http://i.imgur.com/46zPbRE.png" align="left" height="150" width="240" ></a>
 
@@ -10,16 +10,18 @@ If you want in fast way create a cellular automatons, you need to use MV-Engine 
 
 
 
-#Technical description
+## Technical description
 
 Engine is based on C++/SFML
 
-#What it offers
+## What it offers
+-ready for first use skeleton of application
 
 -Scene
 
 -Support game control
--Skeleton Application
+
+-Inmput manager
 
 -Loader
 
@@ -29,6 +31,8 @@ Engine is based on C++/SFML
 
 -Map of cells and manage it (MapManager) 
 
+-SoundObjects (great way to control sounds)
+
 -File Manager
 
 -Logger
@@ -37,14 +41,19 @@ Engine is based on C++/SFML
 
 -Event control
 
--Prepared main.cpp
+-Statement system
 
+-Ticker model (like in unity)
 
-#What it will offer
+-initializator
 
 -View control (moving the camera etc...) [soon]
 
 -FPS control [soon]
 
 -Mouse control [soon]
+
+-Prepared main.cpp
+
+
 
