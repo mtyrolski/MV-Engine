@@ -3,10 +3,11 @@
 #include <vector>
 
 #include "MV/cell/Cell.hpp"
+#include "MV/ticker/Ticker.hpp"
 
 namespace mv
 {
-	class MapManager final
+	class MapManager final : public Ticker
 	{
 		/* ===Objects=== */
 	public:
@@ -60,6 +61,8 @@ namespace mv
 
 		//Checks that object with given position is in map
 		bool isInMap(unsigned int i, unsigned int j);
+
+		virtual void tick() override;
 	
 	protected:
 	private:

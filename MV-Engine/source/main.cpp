@@ -12,9 +12,7 @@ int main()
 	{
 		sf::Event event;
 
-		mv::Scene::getInstance().clear();
-		mv::MapManager::getInstance().updateCells();
-		
+		mv::Scene::getInstance().clear();		
 		mv::Ticker::tickLoop();
 
 		mv::Scene::getInstance().drawCollection<mv::Cell>(mv::MapManager::getInstance().getCellStorage());

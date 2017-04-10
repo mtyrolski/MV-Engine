@@ -15,6 +15,7 @@ namespace mv
 		/* ===Methods=== */
 	public:
 		Ticker(Ticker* pointer);
+		virtual ~Ticker();
 
 		virtual void tick() = 0;
 

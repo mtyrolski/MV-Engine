@@ -17,6 +17,7 @@ namespace mv
 
 
 	MapManager::MapManager(sf::Vector2i uWorldSize, const sf::Vector2f & cellDim)
+		:Ticker(this)
 	{
 		if (uWorldSize.x <= 0 || cellDim.x <= 0 ||
 			uWorldSize.y <= 0 || cellDim.y <= 0)
@@ -107,6 +108,11 @@ namespace mv
 	{
 		return i >= 0 && i < unitWorldSize.x &&
 			j >= 0 && j < unitWorldSize.y;
+	}
+
+	void MapManager::tick()
+	{
+		updateCells();
 	}
 }
 

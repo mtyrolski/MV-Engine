@@ -9,6 +9,11 @@ namespace mv
 		objects.push_back(pointer);
 	}
 
+	Ticker::~Ticker()
+	{
+		removePointer(this);
+	}
+
 	void Ticker::tickLoop()
 	{
 		for (auto&var : objects)
@@ -23,8 +28,8 @@ namespace mv
 		{
 			if (*itr = ptr)
 			{
-				delete *itr;
-				break;
+				objects.erase(itr);
+				return;
 			}
 		}
 	}
