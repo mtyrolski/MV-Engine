@@ -11,7 +11,7 @@ namespace mv
 
 	Scene & Scene::getInstance()
 	{
-		if (instance == 0)
+		if (instance == nullptr)
 			Logger::Log(constants::error::singleton::SINGLETON_NOT_INITED, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
 	
 		return *instance;

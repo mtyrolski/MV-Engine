@@ -19,7 +19,7 @@ namespace mv
 	protected:
 	private:
 
-		std::map<std::string, int8_t> sounds;
+		std::map<std::string, int> sounds;
 
 		std::vector<std::pair<sf::Sound, sf::SoundBuffer>> soundSource;
 
@@ -57,6 +57,5 @@ namespace mv
 
 	protected:
 	private:
-		bool playOnce(const std::string & name);
 	};
 }

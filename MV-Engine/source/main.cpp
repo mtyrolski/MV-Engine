@@ -6,7 +6,7 @@ int main()
 {
 	mv::Initializator::createInstance();
 	mv::Initializator::getInstance().init();
-
+	
 	//main game loop
 	while (mv::Scene::getInstance().isOpen())
 	{

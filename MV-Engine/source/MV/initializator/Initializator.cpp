@@ -28,15 +28,15 @@ namespace mv
 	{
 		if (instance == 0)
 			Logger::Log(constants::error::singleton::SINGLETON_NOT_INITED, Logger::STREAM::BOTH, Logger::TYPE::ERROR);
+		
 		return *instance;
 	}
 
 	void Initializator::createInstance()
 	{
-		if (instance == 0)
+		if (instance == nullptr)
 			instance = new Initializator();
 	}
-
 }
 
 

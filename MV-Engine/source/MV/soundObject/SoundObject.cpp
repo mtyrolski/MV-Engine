@@ -1,5 +1,5 @@
 #include "SoundObject.hpp"
-
+#include <iostream>
 namespace mv
 {
 	bool SoundObject::EmplaceSound(const std::string & name )
@@ -17,12 +17,9 @@ namespace mv
 		}
 
 		sf::Sound sound;
-		sound.setBuffer( soundBuffer );
-
 		soundSource.push_back( std::pair<sf::Sound, sf::SoundBuffer>( sound, soundBuffer ) );
-
-		sounds.emplace( name, sounds.size() );
-
+		soundSource.back().first.setBuffer(soundSource.back().second);
+		sounds.emplace(std::pair<std::string,int>(name, sounds.size()));
 		return true;
 	}
 
@@ -65,13 +62,12 @@ namespace mv
 			Logger::Log(constants::error::soundObject::DOES_NOT_EXIST_IN_SYSTEM, Logger::STREAM::CONSOLE, Logger::TYPE::WARNING);
 			return false;
 		}
-	
-		soundSource[sounds[name]].first.play();
 
-		while (soundSource[sounds[name]].first.getStatus() == sf::Sound::Playing)
+		for (auto&var : sounds)
 		{
+			std::cout << var.first <<" "<<var.second<< std::endl;
 		}
-
+		soundSource[sounds[name]].first.play();
 		return true;
 	}
 }
