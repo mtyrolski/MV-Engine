@@ -4,11 +4,13 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
+#include <SFML/Window/Keyboard.hpp>
 
 #include "MV/config/Config.hpp"
 #include "MV/logger/logger.hpp"
 #include "MV/cell/Cell.hpp"
 #include "MV/mapManager/MapManager.hpp"
+#include "MV/InputManager/InputManager.hpp"
 #include "MV/mouse/Mouse.hpp"
 
 
@@ -39,6 +41,8 @@ namespace mv
 		sf::View view;
 
 		static Scene* instance;
+
+		mv::InputManager inputManager;
 
 		friend class InputManager;
 		friend class Initializator;

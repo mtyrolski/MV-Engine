@@ -4,7 +4,6 @@
 #include <functional>
 
 #include "SFML/Window/Keyboard.hpp"
-
 #include "MV//ticker/Ticker.hpp"
 
 

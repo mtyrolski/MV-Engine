@@ -44,6 +44,11 @@ namespace mv
 		:viewSpeed(2.f)
 	{
 		window = new sf::RenderWindow(sf::VideoMode(dimensions.x, dimensions.y), title);
+		
+		inputManager.addKeyToCheck(sf::Keyboard::A, []() { mv::Scene::getInstance().moveViewLeft(); });
+		inputManager.addKeyToCheck(sf::Keyboard::D, []() { mv::Scene::getInstance().moveViewRight(); });
+		inputManager.addKeyToCheck(sf::Keyboard::W, []() { mv::Scene::getInstance().moveViewTop(); });
+		inputManager.addKeyToCheck(sf::Keyboard::S, []() { mv::Scene::getInstance().moveViewDown(); });
 	}
 
 	Scene::~Scene()

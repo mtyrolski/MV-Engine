@@ -2,6 +2,18 @@
 
 #include "MV/stateSystem/StateSystem.hpp"
 #include "MV/config/Config.hpp"
+#include "MV/resourceCache/Cache.hpp"
+#include "MV/mapManager/MapManager.hpp"
+#include "EventControl.hpp"
+#include "MV/cell/Cell.hpp"
+#include "MV/initializator/Initializator.hpp"
+#include "MV/statementSystem/StatementSystem.hpp"
+#include "MV/scene/Scene.hpp"
+#include "MV/loader/Loader.hpp"
+#include "MV/InputManager/InputManager.hpp"
+#include "MV/mouse/Mouse.hpp"
+#include "MV/ticker/Ticker.hpp"
+
 
 namespace mv
 {
