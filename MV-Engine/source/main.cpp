@@ -1,47 +1,27 @@
 #pragma once
 
-#include <vector>
-
-#include <SFML/Window/Event.hpp>
-
-#include "MV/resourceCache/Cache.hpp"
-#include "MV/mapManager/MapManager.hpp"
-#include "MV/cell/Cell.hpp"
 #include "MV/initializator/Initializator.hpp"
-#include "MV/scene/Scene.hpp"
-#include "MV/loader/Loader.hpp"
-#include "EventControl.hpp"
 
 int main()
 {
-	mv::Scene* scene;
-	mv::MapManager* mapManager;
-
-	{
-		mv::Initializator initializator;
-		initializator.init();
-
-		mv::Loader loader;
-		loader.loadData();
-
-		scene = new mv::Scene(loader.title, sf::Vector2f(loader.ammount.x*loader.cellDimensions.x, loader.ammount.y*loader.cellDimensions.y));
-		mapManager = new mv::MapManager(loader.ammount, loader.cellDimensions);
-	}
-
-	mv::EventControl eventControl(scene);
-	mapManager->constructWholeWorld(mv::constants::defaults::EMPTY);
-
+	mv::Initializator::createInstance();
+	mv::Initializator::getInstance().init();
+	
 	//main game loop
-	while (scene->isOpen())
+	while (mv::Scene::getInstance().isOpen())
 	{
 		sf::Event event;
 
-		scene->clear();
-		mapManager->updateCells();
-		scene->drawCollection<mv::Cell>(mapManager->getCellStorage());
-		scene->display();
+		mv::Scene::getInstance().clear();		
+		mv::Ticker::tickLoop();
 
-		eventControl.checkEvent(event);
+		mv::Scene::getInstance().drawCollection<mv::Cell>(mv::MapManager::getInstance().getCellStorage());
+		mv::Scene::getInstance().drawCollection<mv::Statement>(&mv::StatementSystem::getInstance().getStatements());
+		mv::Scene::getInstance().GetPointerToWindow()->draw(mv::Mouse::getInstance());
+		
+		mv::Scene::getInstance().display();
+
+		mv::EventControl::getInstance().checkEvent(event);
 	}
 
 

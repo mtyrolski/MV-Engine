@@ -7,11 +7,6 @@ namespace mv
 {
 	namespace constants
 	{
-		namespace loader
-		{
-			constexpr auto DATA_PATH = "source/MV/loader/options.txt";
-		}
-
 		namespace cell
 		{
 			const sf::Color FILL_COLOR(120, 133, 139); //Squirrel grey
@@ -25,14 +20,14 @@ namespace mv
 			constexpr auto PREFIX_ERROR = "[ERROR]";
 		}
 
-		namespace fileManager
+		namespace scene
 		{
-			constexpr auto PATH_LOG = "source/data/log/log.txt";
+			constexpr auto ZOOM_SPEED = 0.05f;
 		}
-		
-		namespace stateSystem
+
+		namespace mouse
 		{
-			constexpr auto STATES_PATH = "source/data/states/states.txt";
+			constexpr auto FREQUENCY = 0.2f;
 		}
 		
 		namespace error
@@ -61,13 +56,28 @@ namespace mv
 			{
 				constexpr auto PATH_IS_NOT_CORRET = "Given path is not correct";
 			}
+
+			namespace singleton
+			{
+				constexpr auto SINGLETON_NOT_INITED = "Singleon must be inited!";
+				constexpr auto SINGLETON_INITED = "Singleon has been inited before";
+			}
+
+			namespace soundObject
+			{
+				constexpr auto ALREADY_EXIST = "Sound with given name already exists";
+				constexpr auto DOES_NOT_EXIST_IN_SYSTEM = "Sound with given doesn't exist in system";
+			}
 		}
 
 		namespace defaults
 		{
 			constexpr auto EMPTY = "EMPTY";
+			constexpr auto EMPTY_STATE_NUMBER = 0;
 			constexpr auto UNNAMED = "unnamed";
 			const sf::Vector2f WINDOW_DIMENSIONS = { 600,600 };
+			const sf::Vector2u BORDER_TOLERANCE = { 100,100 };
+			const sf::Vector2f MOUSE_DIMENSIONS = { 20,20 };
 		}
 
 	}

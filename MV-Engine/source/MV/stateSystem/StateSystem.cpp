@@ -4,7 +4,7 @@ namespace mv
 {
 	std::map<std::string, std::pair<int8_t,sf::Color>> StateSystem::states;
 
-	bool StateSystem::emplaceState(std::string name, int8_t number, sf::Color color)
+	bool StateSystem::emplaceState(const std::string& name, int8_t number, sf::Color& color)
 	{
 		if (states.find(name) != states.end())
 		{
@@ -21,7 +21,7 @@ namespace mv
 		return true;
 	}
 
-	bool StateSystem::readStatesFromFile(std::string path)
+	bool StateSystem::readStatesFromFile(const std::string& path)
 	{
 		std::ifstream file(path);
 
@@ -48,7 +48,7 @@ namespace mv
 		return true;
 	}
 
-	bool StateSystem::isStateExist(std::string name)
+	bool StateSystem::isStateExist(const std::string& name)
 	{
 		return (states.find(name) != states.end());
 	}
@@ -64,7 +64,7 @@ namespace mv
 		return false;
 	}
 
-	int8_t StateSystem::getNumberOfState(std::string name)
+	int8_t StateSystem::getNumberOfState(const std::string& name)
 	{
 		auto itr = states.find(name);
 
@@ -72,7 +72,7 @@ namespace mv
 		else return itr->second.first;
 	}
 
-	sf::Color StateSystem::getColorOfState(std::string name)
+	sf::Color StateSystem::getColorOfState(std::string& name)
 	{
 		if (StateSystem::isStateExist(name))
 			return states[name].second;
@@ -100,7 +100,7 @@ namespace mv
 		return constants::error::stateSystem::ERROR_NAME;
 	}
 
-	bool StateSystem::eraseState(std::string name)
+	bool StateSystem::eraseState(std::string& name)
 	{
 		auto itr = states.find(name);
 		
