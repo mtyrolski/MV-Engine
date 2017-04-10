@@ -1,4 +1,4 @@
-# MV-Engine 1.0
+# MV-Engine 1.1
 Engine to creating cellular automatons
 
 ## Build your own cellular  automaton faster!
