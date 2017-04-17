@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <map>
+#include <memory>
 
 #include <SFML/Graphics/Texture.hpp>
 
@@ -14,16 +15,16 @@ namespace mv
 	public:
 	protected:
 	private:
-		std::map<std::string, T> resources;
+		std::map<std::string, std::shared_ptr<T>> resources;
 		/* ===Methods=== */
 	public:
-		T& get(const std::string& path);
+		std::shared_ptr<T> get(const std::string& path);
 	protected:
 	private:
 	};
 
 	template<typename T>
-	inline T & Cache<T>::get(const std::string & path)
+	inline std::shared_ptr<T> Cache<T>::get(const std::string & path)
 	{
 
 		if (path.empty())
@@ -34,7 +35,7 @@ namespace mv
 		{//Try find resource
 			auto result = resources.find(path);
 			if (result != resources.end())
-				return (T&)result->second;
+				return result->second;
 		}
 
 		{//Try to load it
@@ -45,9 +46,9 @@ namespace mv
 				Logger::Log("Cache can't find resource in this path.", Logger::STREAM::BOTH, Logger::TYPE::WARNING);
 			}
 
-			resources.emplace(path, resource);
+			resources.emplace(path, std::make_shared<T>(resource));
 
-			return (T&)resources[path];
+			return resources[path];
 		}
 	}
 }

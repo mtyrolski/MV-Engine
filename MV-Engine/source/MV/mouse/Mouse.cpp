@@ -56,7 +56,7 @@ namespace mv
 		:tolerance(mv::constants::defaults::BORDER_TOLERANCE.x, mv::constants::defaults::BORDER_TOLERANCE.y),
 		Ticker(this), movingPermission(movingBorderPermission)
 	{
-		object.setTexture(cache.get("data/textures/mouseAtlas.png"));
+		object.setTexture(*cache.get("data/textures/mouseAtlas.png"));
 		object.setTextureRect(sf::IntRect(static_cast<int>(type)*constants::defaults::MOUSE_DIMENSIONS.x, 0, constants::defaults::MOUSE_DIMENSIONS.x, constants::defaults::MOUSE_DIMENSIONS.y));
 		object.setOrigin(object.getGlobalBounds().width / 2, object.getGlobalBounds().height / 2);
 	}
