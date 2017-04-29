@@ -14,6 +14,10 @@ If you want in fast way create a cellular automatons, you need to use MV-Engine 
 
 Engine is based on C++/SFML
 
+
+## Example of use
+https://github.com/mvxxx/WireWorld
+
 ## What it offers
 -ready for first use skeleton of application
 
